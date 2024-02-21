@@ -108,9 +108,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = 'static/'
-STATICFILES_DIRS = [ BASE_DIR / "staticfiles/"]
+
+STATIC_ROOT = 'staticfiles/'
+
+STATICFILES_DIRS = [ os.path.join(BASE_DIR, "static/")]
+
 MEDIA_URL = 'media/'
+
 MEDIA_ROOT = 'media/'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
@@ -120,24 +124,24 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar_Basic': [
-            ['Bold', 'Italic']
-        ],
-        'toolbar_YourCustomToolbarConfig': [
-            {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
-            '/',
-            {'name': 'basicstyles',
-             'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript']},
-            {'name': 'paragraph',
-             'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
-                       'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl']},
-            {'name': 'insert',
-             'items': ['Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak']},
-            '/',
-            {'name': 'styles', 'items': ['Styles', 'Format','FontSize']},
-            {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
-        ],
-    }
-}
+# CKEDITOR_CONFIGS = {
+#     'default': {
+#         'toolbar_Basic': [
+#             ['Bold', 'Italic']
+#         ],
+#         'toolbar_YourCustomToolbarConfig': [
+#             {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
+#             '/',
+#             {'name': 'basicstyles',
+#              'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript']},
+#             {'name': 'paragraph',
+#              'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
+#                        'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl']},
+#             {'name': 'insert',
+#              'items': ['Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak']},
+#             '/',
+#             {'name': 'styles', 'items': ['Styles', 'Format','FontSize']},
+#             {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
+#         ],
+#     }
+# }
