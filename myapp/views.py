@@ -2,13 +2,19 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from .forms import BookFilter
+from .models import EbookModel
 
 # Create your views here.
 def home(request):
 	return render(request, "myapp/home.html")
 
 def filterbooks(request):
-	pass
+	f = BookFilter(request.GET, queryset = EbookModel.objects.all())
+	context = {
+		'filter':f,
+	}
+	return render(request, 'myapp/filter.html', context)
 
 def registerview(request):
 	if request.method == "POST":

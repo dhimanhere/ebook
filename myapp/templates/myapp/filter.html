@@ -1,0 +1,17 @@
+{% extends 'myapp/base.html' %}
+{% block head %}
+<title>Filter</title>
+{% endblock %}
+{% block content %}
+<div class="f-container">
+	<div class="f-wrapper">
+		<form method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+    </form>
+    {% for obj in filter.qs %}
+        {{ obj.title }} - ${{ obj.author }}<br />
+    {% endfor %}
+	</div>
+</div>
+{% endblock %}
