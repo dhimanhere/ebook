@@ -7,4 +7,4 @@ class BookFilter(django_filters.FilterSet):
 
 	class Meta:
 		model = EbookModel
-		fields = ['title', 'author', 'institute']
+		fields = ['title', 'author', 'category']

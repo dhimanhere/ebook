@@ -7,9 +7,41 @@
 	{% endblock %}
 </head>
 <body>
+	<nav class="nav">
+		<div class="logo-container">
+			<a href="#" class="logo">eBookMania</a>
+		</div>
+		<div class="hamburger">
+			<div class="ham"></div>
+			<div class="ham"></div>
+			<div class="ham"></div>
+		</div>
+		<ul class="nav-list">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">eBooks</a></li>
+			<li><a href="#">Support</a></li>
+			<li><a href="#">Sign Up</a></li>
+		</ul>
+	</nav>
 	<main class="main">
 	{% block content %}
 	{% endblock %}
 	</main>
+	<footer class="footer">
+		<ul>
+			<li>
+				<a href="#">About us</a>
+			</li>
+			<li>
+				<a href="#">Terms & Conditions</a>
+			</li>
+			<li>
+				<a href="#">Privacy Policy</a>
+			</li>
+		</ul>
+		<i class="copyright">All Rights Reserved</i>
+	</footer>
+	{% block js %}
+	{% endblock %}
 </body>
 </html>

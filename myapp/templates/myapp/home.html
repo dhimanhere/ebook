@@ -1,11 +1,63 @@
 {% extends 'myapp/base.html' %}
 {% block head %}
 <title>Home</title>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 {% endblock %}
 {% block content %}
-<div class="f-container">
-	<div class="f-wrapper">
-		<h1>This is home</h1>
+<section class="ss-1">
+	<div class="hero-container">
+		<div class="hero-wrapper">
+			<div class="hero">
+				<img src="https://wallpapercave.com/wp/CpRGNUC.jpg" alt="">
+			</div>
+			<div class="hero">
+				<img src="https://wallpapercave.com/wp/CpRGNUC.jpg" alt="">
+			</div>
+			<div class="hero">
+				<img src="https://wallpapercave.com/wp/CpRGNUC.jpg" alt="">
+			</div>
+			<div class="hero">
+				<img src="https://wallpapercave.com/wp/CpRGNUC.jpg" alt="">
+			</div>
+		</div>
 	</div>
-</div>
+	<div class="ebk-container">
+		<div class="ebk-wrapper">
+			<h2>Lorem ipsum dolor sit amet.</h2>
+			<div class="ebk">
+				<div class="eb-img">
+					<a href="#">
+						<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="">
+					</a>
+				</div>
+				<div class="eb-title">
+					<h2><a href="#">Lorem ipsum dolor sit amet.</a></h2>
+				</div>
+				<div class="eb-btn">
+					<a href="#">Download</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="cat-container">
+		<h2>Lorem ipsum dolor sit amet.</h2>
+		<div class="cat-wrapper">
+			<div class="cat">
+				<a href="#"><img src="" alt=""></a>
+				<h3><a href=""></a></h3>
+			</div>
+			<div class="cat">
+				<a href=""><img src="" alt=""></a>
+				<h3><a href=""></a></h3>
+			</div>
+			<div class="cat">
+				<a href=""><img src="" alt=""></a>
+				<h3><a href=""></a></h3>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 {% endblock %}

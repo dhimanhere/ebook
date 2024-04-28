@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',
     'django_filters',
-    'ckeditor'
+    'django_quill',
 ]
 
 MIDDLEWARE = [
@@ -123,25 +123,3 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# CKEDITOR_CONFIGS = {
-#     'default': {
-#         'toolbar_Basic': [
-#             ['Bold', 'Italic']
-#         ],
-#         'toolbar_YourCustomToolbarConfig': [
-#             {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
-#             '/',
-#             {'name': 'basicstyles',
-#              'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript']},
-#             {'name': 'paragraph',
-#              'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
-#                        'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl']},
-#             {'name': 'insert',
-#              'items': ['Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak']},
-#             '/',
-#             {'name': 'styles', 'items': ['Styles', 'Format','FontSize']},
-#             {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
-#         ],
-#     }
-# }
