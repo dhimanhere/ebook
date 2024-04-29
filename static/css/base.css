@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;600&family=Montserrat&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	letter-spacing: 1px;
+}
+:root{
+	--header-font: "Barlow", sans-serif;
+	--primary-font: "Montserrat", sans-serif;
+	--weight-500: 500;
+	--weight-600: 600;
+	--weight-400: 400;
+}
+h1, h2, h3, h4, h5{
+	font-family: var(--header-font);
+}
+p, li, ul, ol{
+	font-family: var(--primary-font);
+}
+img{
+	width: 100%;
+}

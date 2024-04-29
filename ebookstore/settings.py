@@ -123,3 +123,24 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+QUILL_CONFIGS = {
+    'default':{
+        'theme': 'snow',
+        'modules': {
+            'syntax': False,
+            'toolbar': [
+                [
+                    {'font': False},
+                    {'header': [1, 2, 3, False]},
+                    {'align': []},
+                    'bold', 'italic', 'underline', 'strike',
+                    {'color': ['black']},
+                    {'background': []},
+                ],
+                ['code-block'],
+                ['clean'],
+            ]
+        }
+    }
+}

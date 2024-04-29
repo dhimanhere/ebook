@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,22 +6,43 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	{% block head %}
 	{% endblock %}
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
 	<nav class="nav">
-		<div class="logo-container">
-			<a href="#" class="logo">eBookMania</a>
+		<div class="hambuger">
+			<div class="ham"></div>
+			<div class="ham"></div>
+			<div class="ham"></div>
 		</div>
-		<div class="hamburger">
-			<div class="ham"></div>
-			<div class="ham"></div>
-			<div class="ham"></div>
+		<div class="logo">
+			<a href="#">eBookMania</a>
+		</div>
+		<div class="search-box">
+			<form class="search-f" method="get">
+				<input type="text" name="query" id="query" placeholder="Search..." required>
+				<button type="submit">
+					<img width="50" height="50" src="https://img.icons8.com/ios/50/search--v1.png" alt="search--v1"/>
+				</button>
+			</form>
 		</div>
 		<ul class="nav-list">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">eBooks</a></li>
-			<li><a href="#">Support</a></li>
-			<li><a href="#">Sign Up</a></li>
+			<li>
+				<a href="#">Home</a>
+			</li>
+			<li>
+				<a href="#">Store</a>
+			</li>
+			<li class="block-inp"><span id="username">Username</span>
+                <ul class="username-list">
+                	<li><a href="#">Profile</a></li>
+                	<li><a href="#">Catelog</a></li>
+                	<li><a href="#">Logout</a></li>
+                </ul>
+			</li>
+			<li><a href="#">Profile</a></li>
+			<li><a href="#">Catelog</a></li>
+			<li><a href="#">Logout</a></li>
 		</ul>
 	</nav>
 	<main class="main">
@@ -37,6 +59,9 @@
 			</li>
 			<li>
 				<a href="#">Privacy Policy</a>
+			</li>
+			<li>
+				<a href="#">Support</a>
 			</li>
 		</ul>
 		<i class="copyright">All Rights Reserved</i>
