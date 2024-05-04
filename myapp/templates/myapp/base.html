@@ -21,7 +21,7 @@
 		<div class="search-box">
 			<form class="search-f" method="get">
 				<input type="text" name="query" id="query" placeholder="Search..." required>
-				<button type="submit">
+				<button type="submit" id="formBtn">
 					<img width="50" height="50" src="https://img.icons8.com/ios/50/search--v1.png" alt="search--v1"/>
 				</button>
 			</form>
@@ -33,22 +33,22 @@
 			<li>
 				<a href="#">Store</a>
 			</li>
-			<li class="block-inp"><span id="username">Username</span>
-                <ul class="username-list">
-                	<li><a href="#">Profile</a></li>
-                	<li><a href="#">Catelog</a></li>
-                	<li><a href="#">Logout</a></li>
-                </ul>
+			<li class="block-inp"><span id="usernameId">Username</span>
+				<ul class="username-list">
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">Catelog</a></li>
+					<li><a href="#">Logout</a></li>
+				</ul>
 			</li>
-			<li><a href="#">Sign up</a></li>
 			<li class="mb-l"><a href="#">Profile</a></li>
 			<li class="mb-l"><a href="#">Catelog</a></li>
 			<li class="mb-l"><a href="#">Logout</a></li>
+			<li><a href="#">Sign up</a></li>
 		</ul>
 	</nav>
 	<main class="main">
-	{% block content %}
-	{% endblock %}
+		{% block content %}
+		{% endblock %}
 	</main>
 	<footer class="footer">
 		<ul>
@@ -69,5 +69,20 @@
 	</footer>
 	{% block js %}
 	{% endblock %}
+	<script>
+		const hambuger = document.querySelector(".hambuger");
+		const username = document.querySelector("#usernameId");
+		const usernameList = document.querySelector(".username-list");
+		const navList = document.querySelector(".nav-list");
+		hambuger.addEventListener("click", ()=>{
+			cosole.log(hambuger);
+		})
+		username.addEventListener("click", ()=>{
+			usernameList.classList.toggle("active");
+		});
+		hambuger.addEventListener("click", ()=>{
+			navList.classList.toggle("active");
+		})
+	</script>
 </body>
 </html>

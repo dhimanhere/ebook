@@ -74,6 +74,22 @@
 </section>
 {% endblock %}
 {% block js %}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="{% static 'js/home.js' %}"></script>
+<script>
+	$(document).ready(function(){
+		$('.hero-wrapper').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 2000,
+			dots: true,
+			infinite: true,
+			speed: 500,
+			fade: true,
+			cssEase: 'linear'
+		});
+	});
+</script>
 {% endblock %}

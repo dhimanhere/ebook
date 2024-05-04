@@ -93,10 +93,7 @@ img{
 	width: 100%;
 	height: 1.5rem;
 }
-.username-list{
-	display: none;
-}
-.nav-list>li>a, #username{
+.nav-list>li>a, #usernameId{
 	text-decoration: none;
 	color: var(--color-black);
 	font-family: var(--header-font);
@@ -104,7 +101,7 @@ img{
 	font-size: 1rem;
 	cursor: pointer;
 }
-.nav-list>li>a:hover, #username:hover{
+.nav-list>li>a:hover, #usernameId:hover{
 	color: var(--color-link);
 }
 .footer{
@@ -130,4 +127,31 @@ img{
 	font-family: serif;
 	color: black;
 	font-size: 0.875rem;
+}
+.block-inp{
+	position: relative;
+}
+.username-list{
+	position: absolute;
+	visibility: hidden;
+	list-style: none;
+	z-index: -1;
+	top: calc(100% + 1rem);
+	background: var(--color-background);
+	padding: 1rem;
+	border-radius: 10px;
+	text-align: center;
+	transition: 100ms linear;
+	display: grid;
+	grid-gap: 0.5rem;
+	font-family: var(--primary-font);
+}
+.username-list.active{
+	visibility: visible;
+	z-index: 10;
+}
+.username-list>li>a{
+	text-decoration: none;
+	font-size: 0.875rem;
+	color: var(--color-black);
 }
