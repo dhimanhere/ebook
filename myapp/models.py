@@ -24,6 +24,11 @@ class Uploader(models.Model):
 	def __str__(self):
 		return self.name
 
+class Language(models.Model):
+	name = models.CharField(max_length = 20)
+	slug = AutoSlugField(populate_from="name", unique = True)
+	created_on = models.DateTimeField(auto_now_add=True)
+
 class EbookModel(models.Model):
 	title = models.CharField(max_length = 255)
 	slug = AutoSlugField(populate_from='title', unique=True)
@@ -33,7 +38,7 @@ class EbookModel(models.Model):
 	category = models.ForeignKey(Category, on_delete = models.CASCADE)
 	uploader = models.ForeignKey(Uploader, on_delete = models.CASCADE)
 	author = models.CharField(max_length=30)
-	likes = models.PositiveIntegerField()
+	language = models.ForeignKey(Language, on_delete = models.CASCADE, null=True)
 	created_on = models.DateTimeField(auto_now_add = True)
 
 	def __str__(self):

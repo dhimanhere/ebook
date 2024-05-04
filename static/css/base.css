@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;600&family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
 *{
 	margin: 0;
 	padding: 0;
@@ -8,9 +9,13 @@
 :root{
 	--header-font: "Barlow", sans-serif;
 	--primary-font: "Montserrat", sans-serif;
+	--logo-font: "Jersey 10", sans-serif;
 	--weight-500: 500;
 	--weight-600: 600;
 	--weight-400: 400;
+	--color-black: black;
+	--color-background: #eedeeb;
+	--color-link: #956891;
 }
 h1, h2, h3, h4, h5{
 	font-family: var(--header-font);
@@ -20,4 +25,109 @@ p, li, ul, ol{
 }
 img{
 	width: 100%;
+}
+.nav{
+	display: grid;
+	grid-template-columns: 1fr 15rem 3fr;
+	padding: 1rem;
+	grid-gap: 1rem;
+	align-items: center;
+}
+.nav-list{
+	display: flex;
+  list-style: none;
+	justify-content: flex-end;
+	gap: 1.5rem;
+}
+.hambuger{
+	cursor: pointer;
+	display: none;
+}
+.ham{
+	width: 30px;
+	height: 2px;
+	background: black;
+	margin: 5px;
+}
+.logo{
+	font-family: var(--logo-font);
+	font-size: 1.75rem;
+}
+.logo>a{
+	text-decoration: none;
+	color: black;
+}
+.mb-l{
+	display: none;
+}
+.search-f{
+	display: flex;
+	justify-content: center;
+}
+.search-f>input{
+	width: 100%;
+	border-left: 1px solid black;
+	border-top: 1px solid black;
+	border-right: 0px;
+	border-bottom: 1px solid black;
+	padding-inline: 0.5rem;
+	outline: 0;
+	border-radius: 10px 0px 0px 10px;
+}
+.search-f>button{
+	border: 0;
+	cursor: pointer;
+	padding: 5px;
+	background: transparent;
+	transition: 300ms linear;
+	border-left: 0;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+	border-radius: 0px 10px 10px 0px;
+}
+.search-f>button:hover{
+	background: rgba(0,0,0, 0.1);
+}
+.search-f>button>img{
+	width: 100%;
+	height: 1.5rem;
+}
+.username-list{
+	display: none;
+}
+.nav-list>li>a, #username{
+	text-decoration: none;
+	color: var(--color-black);
+	font-family: var(--header-font);
+	text-transform: uppercase;
+	font-size: 1rem;
+	cursor: pointer;
+}
+.nav-list>li>a:hover, #username:hover{
+	color: var(--color-link);
+}
+.footer{
+	padding: 1rem;
+	background: var(--color-background);
+}
+.footer>ul{
+	display: flex;
+	list-style: none;
+	justify-content: center;
+	gap: 2rem;
+	margin-bottom: 1.5rem;
+}
+.footer>ul>li>a{
+	text-decoration: none;
+	font-size: 1rem;
+	color: var(--color-black);
+	font-family: var(--primary-font);
+}
+.copyright{
+	text-align: center;
+	display: block;
+	font-family: serif;
+	color: black;
+	font-size: 0.875rem;
 }
