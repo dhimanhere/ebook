@@ -29,6 +29,9 @@ class Language(models.Model):
 	slug = AutoSlugField(populate_from="name", unique = True)
 	created_on = models.DateTimeField(auto_now_add=True)
 
+	def __str__(self):
+		return self.name
+
 class EbookModel(models.Model):
 	title = models.CharField(max_length = 255)
 	slug = AutoSlugField(populate_from='title', unique=True)

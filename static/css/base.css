@@ -16,15 +16,13 @@
 	--color-black: black;
 	--color-background: #eedeeb;
 	--color-link: #956891;
+	--color-unknown: #cbccff;
 }
 h1, h2, h3, h4, h5{
 	font-family: var(--header-font);
 }
 p, li, ul, ol{
 	font-family: var(--primary-font);
-}
-img{
-	width: 100%;
 }
 .nav{
 	display: grid;
@@ -35,7 +33,7 @@ img{
 }
 .nav-list{
 	display: flex;
-  list-style: none;
+  	list-style: none;
 	justify-content: flex-end;
 	gap: 1.5rem;
 }
@@ -96,7 +94,7 @@ img{
 .nav-list>li>a, #usernameId{
 	text-decoration: none;
 	color: var(--color-black);
-	font-family: var(--header-font);
+	font-family: var(--header-font) !important;
 	text-transform: uppercase;
 	font-size: 1rem;
 	cursor: pointer;
@@ -132,6 +130,7 @@ img{
 	position: relative;
 }
 .username-list{
+	left: 0;
 	position: absolute;
 	visibility: hidden;
 	list-style: none;
@@ -144,7 +143,6 @@ img{
 	transition: 100ms linear;
 	display: grid;
 	grid-gap: 0.5rem;
-	font-family: var(--primary-font);
 }
 .username-list.active{
 	visibility: visible;
@@ -154,4 +152,63 @@ img{
 	text-decoration: none;
 	font-size: 0.875rem;
 	color: var(--color-black);
+}
+@media (max-width: 760px) and (orientation: portrait) {
+	.nav{
+		display: flex;
+		justify-content: flex-start;
+		position: relative;
+	}
+	.nav-list{
+		position: absolute;
+		flex-direction: column;
+		top: 100%;
+		z-index: -1000;
+		width: 100%;
+		text-align: center;
+		background: var(--color-unknown);
+		left: 0;
+		padding: 1.5rem;
+		visibility: hidden;
+		width: 0;
+		transition: 300ms linear;
+	}
+	.nav-list.active{
+		visibility: visible;
+		width: 100%;
+		z-index: 1000;
+	}
+	.block-inp{
+		display: none;
+	}
+	.hambuger{
+		display: block;
+		position: relative;
+	}
+	.ham{
+		transition: 300ms linear;
+	}
+	.hambuger.active .ham:first-child{
+		background: red;
+		transform: rotate(45deg);
+		position: absolute;
+		transform-origin: center;
+		top: 0;
+	}
+	.hambuger.active .ham:last-child{
+		background: red;
+		transform: rotate(-45deg);
+		position: absolute;
+		transform-origin: center;
+		top: 0;
+	}
+	.hambuger.active .ham:nth-child(2){
+		scale: 0;
+	}
+	.mb-l{
+		display: block;
+	}
+	.footer>ul{
+		flex-direction: column;
+	}
 }

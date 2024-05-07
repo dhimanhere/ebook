@@ -33,7 +33,8 @@
 			<li>
 				<a href="#">Store</a>
 			</li>
-			<li class="block-inp"><span id="usernameId">Username</span>
+			{% if request.user.is_authenticated %}
+			<li class="block-inp"><span id="usernameId">{{request.user.username}}</span>
 				<ul class="username-list">
 					<li><a href="#">Profile</a></li>
 					<li><a href="#">Catelog</a></li>
@@ -43,7 +44,9 @@
 			<li class="mb-l"><a href="#">Profile</a></li>
 			<li class="mb-l"><a href="#">Catelog</a></li>
 			<li class="mb-l"><a href="#">Logout</a></li>
+			{% else %}
 			<li><a href="#">Sign up</a></li>
+			{% endif %}
 		</ul>
 	</nav>
 	<main class="main">
@@ -62,7 +65,7 @@
 				<a href="#">Privacy Policy</a>
 			</li>
 			<li>
-				<a href="#">Support</a>
+				<a href="#">Donate</a>
 			</li>
 		</ul>
 		<i class="copyright">All Rights Reserved</i>
@@ -75,14 +78,16 @@
 		const usernameList = document.querySelector(".username-list");
 		const navList = document.querySelector(".nav-list");
 		hambuger.addEventListener("click", ()=>{
-			cosole.log(hambuger);
-		})
+			navList.classList.toggle("active");
+			hambuger.classList.toggle("active");
+		});
 		username.addEventListener("click", ()=>{
 			usernameList.classList.toggle("active");
 		});
-		hambuger.addEventListener("click", ()=>{
-			navList.classList.toggle("active");
-		})
+		console.log(username.textContent.length)
+		if (username.textContent.length < 8){
+			usernameList.style.left = "-2rem";
+		}
 	</script>
 </body>
 </html>
