@@ -10,11 +10,18 @@ def home(request):
 	return render(request, "myapp/home.html")
 
 def filterbooks(request):
+	
 	f = BookFilter(request.GET, queryset = EbookModel.objects.all())
 	context = {
 		'filter':f,
 	}
 	return render(request, 'myapp/filter.html', context)
+
+def search(request):
+	return render(request, 'myapp/search.html')
+
+def category(request):
+	return render(request, 'myapp/category.html')
 
 def registerview(request):
 	if request.method == "POST":

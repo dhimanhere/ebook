@@ -74,20 +74,24 @@
 	{% endblock %}
 	<script>
 		const hambuger = document.querySelector(".hambuger");
-		const username = document.querySelector("#usernameId");
-		const usernameList = document.querySelector(".username-list");
 		const navList = document.querySelector(".nav-list");
 		hambuger.addEventListener("click", ()=>{
 			navList.classList.toggle("active");
 			hambuger.classList.toggle("active");
 		});
+		{% if request.user.is_authenticated %}
+		const username = document.querySelector("#usernameId");
+		const usernameList = document.querySelector(".username-list");
 		username.addEventListener("click", ()=>{
 			usernameList.classList.toggle("active");
 		});
 		console.log(username.textContent.length)
 		if (username.textContent.length < 8){
 			usernameList.style.left = "-2rem";
+		} else {
+			usernameList.style.left = "0";
 		}
+		{% endif %}
 	</script>
 </body>
 </html>

@@ -102,6 +102,9 @@ p, li, ul, ol{
 .nav-list>li>a:hover, #usernameId:hover{
 	color: var(--color-link);
 }
+.main{
+	min-height: 75vh;
+}
 .footer{
 	padding: 1rem;
 	background: var(--color-background);
