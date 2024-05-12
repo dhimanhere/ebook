@@ -1,5 +1,8 @@
 import django_filters
+from django import forms
 from .models import EbookModel
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 class BookFilter(django_filters.FilterSet):
 	author = django_filters.CharFilter(lookup_expr="icontains")
@@ -8,3 +11,24 @@ class BookFilter(django_filters.FilterSet):
 	class Meta:
 		model = EbookModel
 		fields = ['title', 'author', 'category', 'language']
+
+class UserForm(UserCreationForm):
+	first_name = forms.CharField(
+		label='first_name', 
+		widget=forms.TextInput(attrs={'placeholder': 'First Name'})
+		)
+	last_name = forms.CharField(
+		label='last_name', 
+		widget=forms.TextInput(attrs={'placeholder': 'Last Name'})
+		)
+	email = forms.CharField(
+		label='email', 
+		widget=forms.TextInput(attrs={'placeholder': 'Email'})
+		)
+	username = forms.CharField(
+		label='username', 
+		widget=forms.TextInput(attrs={'placeholder': 'Username'})
+		)
+	class Meta:
+		model = User
+		fields = ['first_name', 'last_name', 'username', 'email']

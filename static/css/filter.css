@@ -78,3 +78,14 @@ img{
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
+@media (max-width: 780px){
+	.filter-form{
+		overflow-x: scroll;
+		justify-content: flex-start;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+	}
+	.filter-form::-webkit-scrollbar{
+		display: none;
+	}
+}

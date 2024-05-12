@@ -4,8 +4,22 @@
 <title>Filter</title>
 <link rel="stylesheet" href="{% static 'css/filter.css' %}">
 <style>
+    .cat-header{
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border-bottom: 1px solid var(--color-background);
+        border-top: 1px solid var(--color-background);
+    }
     .cat-header>h1{
-        font-size: 1.125rem;
+        font-size: 0.875rem;
+        font-family: var(--primary-font);
+        font-weight: 400;
+        text-align: center;
+    }
+    .cat-header>h1>span{
+        font-family: var(--header-font) !important;
+        font-weight: 500 !important;
+        display: inline-block;
     }
 </style>
 {% endblock %}

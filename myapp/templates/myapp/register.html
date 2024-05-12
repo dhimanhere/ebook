@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Register</title>
+	<link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+	<header class="header">
+		<a href="#">eBookMania</a>
+	</header>
+	<section class="r-section">
+		<div class="r-container">
+			<div class="r-wrapper">
+				<form method="post" class="form">
+					<h1>Register</h1>
+					{% csrf_token %}
+					<div class="input-container name">
+						{{form.first_name}}
+						{{form.last_name}}
+					</div>
+					<div class="input-container">
+						{{form.username}}
+					</div>
+					<div class="input-container">
+						{{form.email}}
+					</div>
+					<div class="input-container">
+						{{form.password1}}
+					</div>
+					<div class="input-container">
+						{{form.password2}}
+					</div>
+					<button type="submit">Register</button>
+				</form>
+				<div class="login-wrapper">
+					<p>Already have an account? <a href="#">Login</a></p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script>
+		const passWord1 = document.querySelector("#id_password1");
+		const passWord2 = document.querySelector("#id_password2");
+		passWord1.placeholder = "Password";
+		passWord2.placeholder = "Confirm Password";
+	</script>
+</body>
+</html>

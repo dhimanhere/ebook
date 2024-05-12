@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
+from .forms import UserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .forms import BookFilter
@@ -25,7 +25,7 @@ def category(request):
 
 def registerview(request):
 	if request.method == "POST":
-		form = UserCreationForm(request.POST)
+		form = UserForm(request.POST)
 		if form.is_valid():
 			form.save()
 			username = request.POST['username']
@@ -37,7 +37,7 @@ def registerview(request):
 		else:
 			messages.error(request, "Something went wrong!")
 	else:
-		form = UserCreationForm()
+		form = UserForm()
 	context = {
 		'form':form,
 	}
