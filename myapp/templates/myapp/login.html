@@ -1,11 +1,52 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Login</title>
+	<link rel="stylesheet" href="{% static 'css/register.css' %}">
+	<style>
+		.r-wrapper{
+			max-width: 25rem !important;
+		}
+		.forgot-pass{
+			margin-bottom: 0.5rem;
+		}
+		.forgot-pass>p>a{
+			text-decoration: none;
+			font-family: var(--primary-font);
+			font-size: 0.75rem;
+			color: var(--color-link);
+		}
+	</style>
 </head>
 <body>
-	
+	<header class="header">
+		<a href="#">eBookMania</a>
+	</header>
+	<section class="r-section">
+		<div class="r-container">
+			<div class="r-wrapper">
+				<form method="post" class="form">
+					<h1>Login</h1>
+					{% csrf_token %}
+					<div class="input-container">
+						<input type="text" name="username" id="username" placeholder="Username" required>
+					</div>
+					<div class="input-container">
+						<input type="password" name="password" id="password" placeholder="Password" required>
+					</div>
+					<div class="forgot-pass">
+						<p><a href="#" target="_blank">Forgot Password?</a></p>
+					</div>
+					<button type="submit">Login</button>
+				</form>
+				<div class="login-wrapper">
+					<p>Don't have an account? <a href="#" target="_blank">Create an account</a></p>
+				</div>
+			</div>
+		</div>
+	</section>
 </body>
 </html>
