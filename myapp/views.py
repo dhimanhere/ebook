@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .forms import BookFilter, EbookModelForm, UploaderForm
 from .models import EbookModel, Uploader
+from django.http import JsonResponse
 
 # Create your views here.
 def home(request):
@@ -62,7 +63,29 @@ def loginview(request):
 	return render(request, 'myapp/login.html')
 
 def uploaderFormView(request):
-	pass
+	if request.method == "POST":
+		form = UploaderForm(request.POST)
+		if form.is_valid():
+			new_form = form.save(commit = False)
+			new_form.user(request.user)
+			new_form.save()
+			return redirect("/")
+		else:
+			pass
+	else:
+		form = UploaderForm()
+	return render(request, 'myapp/uploader-form.html', {'form':form})
 
 def ebookFormView(request):
-	pass
+	if request.method == "POST":
+		form = EbookModelForm(request.POST, request.FILES)
+		if form.is_valid():
+			new_form = form.save(commit = False)
+			new_form.uploader(request.user.uploader)
+			new_form.save()
+			return JsonResponse({'success': True})
+		else:
+			return JsonResponse({'success': False, 'errors': form.errors})
+	else:
+		form = EbookModelForm()
+	return render(request, 'myapp/ebook-form.html', {'form':form})
