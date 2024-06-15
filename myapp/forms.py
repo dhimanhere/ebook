@@ -1,8 +1,18 @@
 import django_filters
 from django import forms
-from .models import EbookModel
+from .models import EbookModel, Uploader
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+
+class EbookModelForm(forms.ModelForm):
+	class Meta:
+		model = EbookModel
+		fields = ['title', 'thumbnail', 'description', 'book', 'category', 'author', 'language']
+
+class UploaderForm(forms.ModelForm):
+	class Meta:
+		model = Uploader
+		fields = ['name', 'image', 'url']
 
 class BookFilter(django_filters.FilterSet):
 	author = django_filters.CharFilter(lookup_expr="icontains")

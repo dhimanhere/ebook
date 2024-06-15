@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from .forms import UserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from .forms import BookFilter
-from .models import EbookModel
+from .forms import BookFilter, EbookModelForm, UploaderForm
+from .models import EbookModel, Uploader
 
 # Create your views here.
 def home(request):
@@ -60,3 +60,9 @@ def loginview(request):
 	else:
 		messages.warning(request, "This is our fault")
 	return render(request, 'myapp/login.html')
+
+def uploaderFormView(request):
+	pass
+
+def ebookFormView(request):
+	pass
