@@ -1,0 +1,37 @@
+.pf-container{
+	width: 90%;
+	max-width: 30rem;
+	margin-inline: auto;
+	margin-top: 3rem;
+}
+.pf-form label{
+	display: block;
+	font-family: var(--primary-font);
+	color: var(--color-black);
+	font-size: 0.875rem;
+	margin-bottom: 0.25rem;
+}
+.ip-wrapper{
+	margin-bottom: 1rem;
+}
+.ip-wrapper input{
+	width: 100%;
+	border: 0;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+	border-radius: 5px;
+	padding: 3px 5px;
+	outline: 0;
+	font-family: var(--primary-font);
+	font-size: 0.875rem;
+	color: grey;
+}
+.pf-form button{
+	padding: 0.25rem 1rem;
+	border: 0;
+	background-color: var(--color-black);
+	color: white;
+	border-radius: 5px;
+	font-family: var(--primary-font);
+	font-size: 0.875rem;
+	cursor: pointer;
+}

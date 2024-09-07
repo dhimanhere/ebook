@@ -67,11 +67,11 @@ def uploaderFormView(request):
 		form = UploaderForm(request.POST)
 		if form.is_valid():
 			new_form = form.save(commit = False)
-			new_form.user(request.user)
+			new_form.user = request.user
 			new_form.save()
 			return redirect("/")
 		else:
-			pass
+			return redirect("uploader-form")
 	else:
 		form = UploaderForm()
 	return render(request, 'myapp/uploader-form.html', {'form':form})
@@ -81,7 +81,7 @@ def ebookFormView(request):
 		form = EbookModelForm(request.POST, request.FILES)
 		if form.is_valid():
 			new_form = form.save(commit = False)
-			new_form.uploader(request.user.uploader)
+			new_form.uploader = request.user.uploader
 			new_form.save()
 			return JsonResponse({'success': True})
 		else:

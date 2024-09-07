@@ -2,9 +2,29 @@
 {% load static %}
 {% block head %}
 <title>Profile Form</title>
+<link rel="stylesheet" href="{% static 'css/uploader-form.css' %}">
 {% endblock %}
 {% block content %}
-
+	<div class="pf-container">
+		<div class="pf-wrapper">
+			<form method="post" class="pf-form">
+				{% csrf_token %}
+				<div class="ip-wrapper">
+					<label for="id_name">Name</label>
+					{{form.name}}
+				</div>
+				<div class="ip-wrapper">
+					<label for="id_image">Profile Picture</label>
+					{{form.image}}
+				</div>
+				<div class="ip-wrapper">
+					<label for="id_url">Donation Link</label>
+					{{form.url}}
+				</div>
+				<button type="submit">Create</button>
+			</form>
+		</div>
+	</div>
 {% endblock %}
 {% block js %}
 
