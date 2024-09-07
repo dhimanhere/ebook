@@ -59,15 +59,15 @@ p, li, ul, ol{
 	display: none;
 }
 .search-f{
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 	display: flex;
 	justify-content: center;
+	border-radius: 15px;
 }
 .search-f>input{
 	width: 100%;
-	border-left: 1px solid black;
-	border-top: 1px solid black;
-	border-right: 0px;
-	border-bottom: 1px solid black;
+	outline: 0;
+	border: 0;
 	padding-inline: 0.5rem;
 	outline: 0;
 	border-radius: 10px 0px 0px 10px;
@@ -78,10 +78,7 @@ p, li, ul, ol{
 	padding: 5px;
 	background: transparent;
 	transition: 300ms linear;
-	border-left: 0;
-	border-top: 1px solid black;
-	border-right: 1px solid black;
-	border-bottom: 1px solid black;
+	border: 0;
 	border-radius: 0px 10px 10px 0px;
 }
 .search-f>button:hover{

@@ -7,10 +7,15 @@
 {% block content %}
 	<div class="pf-container">
 		<div class="pf-wrapper">
+			<div class="form-intro-container">
+				<div class="form-intro">
+					<h1>Upload Your Creativity, Reach the World</h1>
+				</div>
+			</div>
 			<form method="post" class="pf-form">
 				{% csrf_token %}
 				<div class="ip-wrapper">
-					<label for="id_name">Name</label>
+					<label for="id_name">Pen Name</label>
 					{{form.name}}
 				</div>
 				<div class="ip-wrapper">
@@ -23,6 +28,14 @@
 				</div>
 				<button type="submit">Create</button>
 			</form>
+			<div class="note-container">
+				<p>Note:</p>
+				<ol>
+					<li>The dimension of the image should be 1:1.</li>
+					<li>If you do not have a donation link you can create one from <a href="https://buymeacoffee.com/" target="_blank">Buy me a Coffee</a></li>
+					<li>You can leave the donation link as blank.</li>
+				</ol>
+			</div>
 		</div>
 	</div>
 {% endblock %}

@@ -1,8 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@500&display=swap');
+/*   font-family: "Handjet", sans-serif; */
+
 .pf-container{
 	width: 90%;
 	max-width: 30rem;
 	margin-inline: auto;
 	margin-top: 3rem;
+}
+.form-intro>h1{
+	font-family: "Handjet", sans-serif;
+	font-size: 2.25rem;
+	text-align: center;
+	color: var(--color-black);
 }
 .pf-form label{
 	display: block;
@@ -34,4 +43,27 @@
 	font-family: var(--primary-font);
 	font-size: 0.875rem;
 	cursor: pointer;
+}
+.note-container{
+	margin-top: 1rem;
+}
+.note-container>p{
+	margin-bottom: 0.5rem;
+	font-family: var(--header-font);
+	font-size: 1.25rem;
+	color: red;
+}
+.note-container>ol{
+	padding-left: 1rem;
+	font-family: var(--primary-font);
+  font-size: 0.875rem;
+	display: grid;
+	grid-gap: 0.25rem;
+	color: gray;
+}
+.note-container>ol>li>a{
+	font-family: var(--primary-font);
+  font-size: 0.875rem;
+	color: gray;
+	font-style: italic;
 }
