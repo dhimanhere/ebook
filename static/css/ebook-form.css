@@ -1,0 +1,64 @@
+/* ebook form */
+
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@500&display=swap');
+/*   font-family: "Handjet", sans-serif; */
+.ebk-container{
+  width: 90%;
+  margin-inline: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  max-width: 55rem;
+}
+.ebk-wrapper h1{
+  font-family:  "Handjet", sans-serif;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2.25rem;
+  color: var(--color-black);
+}
+.ebk-input{
+  margin-bottom: 0.875rem;
+  font-family: var(--primary-font);
+}
+.ebk-input label{
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-black);
+}
+.ebk-input input{
+  width: 100%;
+  border: 0;
+  padding: 5px;
+  font-family: var(--primary-font);
+  outline: 0;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  font-size: 0.875rem;
+  color: grey;
+  border-radius: 5px;
+}
+.ebk-input select{
+  width: 100%;
+  padding: 5px;
+  border: 0;
+  background-color: var(--color-background);
+  border-radius: 5px;
+  font-size: 0.875rem;
+}
+.ebk-form>button{
+  border: 0;
+  cursor: pointer;
+  padding: 5px 1rem;
+  background: var(--color-black);
+  color: white;
+  font-family: var(--primary-font);
+  border-radius: 5px;
+  font-size: 0.75rem;
+}
+.ql-editor{
+  min-height: 10rem !important;
+}
+.ql-editor p{
+  font-size: 1rem;
+  font-family: var(--primary-font) !important;
+}

@@ -15,4 +15,5 @@ urlpatterns = [
 	path("password/reset/confirm/<uidb64>/<token>/", auth_views.PasswordResetConfirmView.as_view(template_name = "myapp/password-reset-confirm.html"), name = "password-reset-confirm"),
 	path("password/reset/complete/", auth_views.PasswordResetCompleteView.as_view(template_name = "myapp/password-reset-complete.html"),name="password-reset-complete"),
 	path("author-profile-form/", views.uploaderFormView, name = "uploader-form"),
+	path("upload/ebook/", views.ebookFormView, name= "ebook-form"),
 ]
