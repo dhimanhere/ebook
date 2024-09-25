@@ -41,6 +41,7 @@ class EbookModel(models.Model):
 	category = models.ForeignKey(Category, on_delete = models.CASCADE)
 	uploader = models.ForeignKey(Uploader, on_delete = models.CASCADE)
 	author = models.CharField(max_length=30)
+	store = models.URLField(max_length = 200, blank = True, null = True)
 	language = models.ForeignKey(Language, on_delete = models.CASCADE, null=True)
 	created_on = models.DateTimeField(auto_now_add = True)
 

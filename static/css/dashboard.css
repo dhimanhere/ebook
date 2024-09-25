@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@500&display=swap');
+.dash-container{
+  width: 90%;
+  max-width: 55rem;
+  margin-inline: auto;
+  margin-top: 1rem;
+}
+.dash-top{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+.box{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 2rem;
+  text-align: center;
+  display: grid;
+  grid-gap: 1rem;
+}
+.box>h2{
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  color: var(--black-color);
+}
+.box>.icon-num{
+  font-size: 2.5rem;
+  color: blue;
+  font-weight: 600;
+  font-family: "Handjet", sans-serif;
+}
+.dash-books, #statistics{
+  width: 100% !important;
+}
+.latest-container{
+  margin-top: 2rem;
+  border-top: 1px solid black;
+  padding-top: 1rem;
+  margin-bottom: 2rem;
+}
+.latest-wrapper>h2{
+  text-align: center;
+  font-family: var(--header-font);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+.latest-wrapper>ol{
+  margin-top: 1.5rem;
+  padding-left: 1.5rem;
+  display: grid;
+  grid-gap: 1rem;
+}
+.latest-wrapper>ol>li>a{
+  text-decoration: none;
+  font-family: var(--primary-font);
+  color: var(--black-color);
+  font-size: 1.125rem;
+}

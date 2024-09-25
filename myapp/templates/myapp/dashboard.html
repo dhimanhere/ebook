@@ -2,14 +2,69 @@
 {% load static %}
 {% block head %}
 <title>Dashboard</title>
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
 {% endblock %}
 {% block content %}
 <div class="dash-container">
-	<div class="dash-wrapper">
-		
+	<div class="dash-top">
+		<div class="box">
+			<h2>Total Downloads</h2>
+			<div class="icon-num">550</div>
+		</div>
+		<div class="box">
+			<h2>Total Uploads</h2>
+			<div class="icon-num">10</div>
+		</div>
+	</div>
+	<div class="dash-books">
+		<canvas id="statistics"></canvas>
+	</div>
+	<div class="latest-container">
+		<div class="latest-wrapper">
+			<h2>Your latest uploads</h2>
+			<ol>
+				<li>
+					<a href="#">Lorem ipsum dolor sit amet.</a>
+				</li>
+				<li>
+					<a href="#">Lorem ipsum dolor, sit amet.</a>
+				</li>
+				<li>
+					<a href="#">Lorem ipsum dolor sit amet.</a>
+				</li>
+				<li>
+					<a href="#">Lorem ipsum dolor sit, amet.</a>
+				</li>
+				<li>
+					<a href="#">Lorem ipsum dolor sit, amet.</a>
+				</li>
+			</ol>
+		</div>
 	</div>
 </div>
 {% endblock %}
 {% block js %}
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+	console.log("This is a test");
+	const chtCon = document.querySelector("#statistics");
+	new Chart(chtCon, {
+		type: 'bar',
+		data: {
+			labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+			datasets: [{
+				label: '# of Votes',
+				data: [12, 19, 3, 5, 2, 3],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				y: {
+					beginAtZero: true
+				}
+			}
+		}
+	});
+</script>
 {% endblock %}

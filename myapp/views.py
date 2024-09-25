@@ -89,3 +89,9 @@ def ebookFormView(request):
 	else:
 		form = EbookModelForm()
 	return render(request, 'myapp/ebook-form.html', {'form':form})
+
+def dashboard(request):
+	context = {
+
+	}
+	return render(request, 'myapp/dashboard.html', context)
