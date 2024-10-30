@@ -56,3 +56,8 @@
   color: var(--black-color);
   font-size: 1.125rem;
 }
+@media (max-width: 500px){
+  .dash-top{
+    grid-template-columns: 1fr;
+  }
+}
