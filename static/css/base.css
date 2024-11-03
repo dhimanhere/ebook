@@ -12,10 +12,10 @@
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
     --header-font: "Barlow", sans-serif;
-	--primary-font: "Montserrat", sans-serif;
-	--logo-font: "Jersey 10", sans-serif;
-	--color-link: #956891;
-	--color-unknown: #cbccff;
+    --primary-font: "Montserrat", sans-serif;
+    --logo-font: "Jersey 10", sans-serif;
+    --color-link: #956891;
+    --color-unknown: #cbccff;
 }
 
 /* Base styles */
@@ -29,7 +29,7 @@
 .nav {
     background: var(--color-white);
     box-shadow: var(--shadow);
-   	position: relative;
+    position: relative;
 }
 
 .nav-container {
@@ -43,7 +43,7 @@
 }
 
 .logo a {
-	font-family: var(--logo-font) !important;
+    font-family: var(--logo-font) !important;
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--color-primary);
@@ -61,6 +61,7 @@
     background: var(--color-light);
     border-radius: 8px;
     overflow: hidden;
+    width: 100%;
 }
 
 .search-form input {
@@ -107,9 +108,6 @@
 }
 
 /* User menu */
-.user-menu {
-    position: relative;
-}
 
 .username {
     cursor: pointer;
@@ -241,11 +239,12 @@
     }
 
     .nav-list {
-        position: fixed;
+        position: absolute;
+        width: 100%;
         left: -100%;
-        top: 70px;
-        gap: 0;
+        top: calc(100% + 0.5rem);
         flex-direction: column;
+        gap: 1.5rem;
         background: var(--color-white);
         width: 100%;
         padding: 2rem;
@@ -255,11 +254,20 @@
 
     .nav-list.active {
         left: 0;
+        z-index: 1000;
     }
-
+    .user-menu{
+        position: relative;
+    }
+    .dropdown-menu{
+        top: calc(100% + 1rem);
+        right: none;
+        left: 0;
+    }
     .search-box {
         grid-column: 1 / -1;
         order: 3;
+        max-width: none;
     }
 
     .footer-links {

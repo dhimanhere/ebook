@@ -1,10 +1,10 @@
 /* styles */
 img{
-	width: 100%;
+  width: 100%;
 }
 .hero>img{
-	max-height: 40vh;
-	object-fit: cover;
+  max-height: 40vh;
+  object-fit: cover;
 }
 .container1 {
   max-width: 1200px;
@@ -16,7 +16,7 @@ img{
   margin: 2rem 0;
 }
 
-h2 {
+.ss2 h2 {
   font-size: 2rem;
   color: var(--color-primary);
   margin-bottom: 2rem;
@@ -122,9 +122,11 @@ h2 {
   font-size: 1.1rem;
   color: var(--color-primary);
 }
-
+.ss2.donate{
+  margin: 0;
+}
 .donate {
-  background-color: var(--color-primary);
+  background-color: var(--color-unknown);
   color: var(--color-white);
   padding: 4rem 0;
   text-align: center;
@@ -170,7 +172,7 @@ h2 {
     gap: 1rem;
   }
 
-  h2 {
+  .ss2 h2 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
   }
