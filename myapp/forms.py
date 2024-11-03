@@ -16,11 +16,10 @@ class UploaderForm(forms.ModelForm):
 
 class BookFilter(django_filters.FilterSet):
 	author = django_filters.CharFilter(lookup_expr="icontains")
-	title = django_filters.CharFilter(lookup_expr="icontains")
 
 	class Meta:
 		model = EbookModel
-		fields = ['title', 'author', 'category', 'language']
+		fields = ['author', 'category', 'language']
 
 class UserForm(UserCreationForm):
 	first_name = forms.CharField(

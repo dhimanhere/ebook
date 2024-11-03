@@ -19,4 +19,5 @@ urlpatterns = [
 	path("author-profile-form/", views.uploaderFormView, name = "uploader-form"),
 	path("upload/ebook/", views.ebookFormView, name= "ebook-form"),
 	path("dashboard/", views.dashboard, name = "dashboard"),
+	path("category/", views.category, name = "category"),
 ]
