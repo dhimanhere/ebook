@@ -2,96 +2,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	{% block head %}
-	{% endblock %}
-	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eBookMania - Your Digital Library</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block head %}
+    {% endblock %}
 </head>
 <body>
-	<nav class="nav">
-		<div class="hambuger">
-			<div class="ham"></div>
-			<div class="ham"></div>
-			<div class="ham"></div>
-		</div>
-		<div class="logo">
-			<a href="#">eBookMania</a>
-		</div>
-		<div class="search-box">
-			<form class="search-f" method="get">
-				<input type="text" name="query" id="query" placeholder="Search..." required>
-				<button type="submit" id="formBtn">
-					<img width="50" height="50" src="https://img.icons8.com/ios/50/search--v1.png" alt="search--v1"/>
-				</button>
-			</form>
-		</div>
-		<ul class="nav-list">
-			<li>
-				<a href="#">Home</a>
-			</li>
-			<li>
-				<a href="#">Store</a>
-			</li>
-			{% if request.user.is_authenticated %}
-			<li class="block-inp"><span id="usernameId">{{request.user.username}}</span>
-				<ul class="username-list">
-					<li><a href="#">Profile</a></li>
-					<li><a href="#">Catelog</a></li>
-					<li><a href="#">Logout</a></li>
-				</ul>
-			</li>
-			<li class="mb-l"><a href="#">Profile</a></li>
-			<li class="mb-l"><a href="#">Catelog</a></li>
-			<li class="mb-l"><a href="#">Logout</a></li>
-			{% else %}
-			<li><a href="#">Sign up</a></li>
-			{% endif %}
-		</ul>
-	</nav>
-	<main class="main">
-		{% block content %}
-		{% endblock %}
-	</main>
-	<footer class="footer">
-		<ul>
-			<li>
-				<a href="#">About us</a>
-			</li>
-			<li>
-				<a href="#">Terms & Conditions</a>
-			</li>
-			<li>
-				<a href="#">Privacy Policy</a>
-			</li>
-			<li>
-				<a href="#">Donate</a>
-			</li>
-		</ul>
-		<i class="copyright">All Rights Reserved</i>
-	</footer>
-	{% block js %}
-	{% endblock %}
-	<script>
-		const hambuger = document.querySelector(".hambuger");
-		const navList = document.querySelector(".nav-list");
-		hambuger.addEventListener("click", ()=>{
-			navList.classList.toggle("active");
-			hambuger.classList.toggle("active");
-		});
-		{% if request.user.is_authenticated %}
-		const username = document.querySelector("#usernameId");
-		const usernameList = document.querySelector(".username-list");
-		username.addEventListener("click", ()=>{
-			usernameList.classList.toggle("active");
-		});
-		console.log(username.textContent.length)
-		if (username.textContent.length < 8){
-			usernameList.style.left = "-2rem";
-		} else {
-			usernameList.style.left = "0";
-		}
-		{% endif %}
-	</script>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="logo">
+                <a href="#">eBookMania</a>
+            </div>
+            <div class="search-box">
+                <form class="search-form" method="get">
+                    <input type="text" name="query" id="query" placeholder="Search books..." required>
+                    <button type="submit" class="search-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+            <ul class="nav-list">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link">Store</a></li>
+                <li class="user-menu">
+                    <span class="username">JohnDoe</span>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">My Library</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <ul class="footer-links">
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Donate</a></li>
+            </ul>
+            <p class="copyright">© 2024 eBookMania. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/base.js' %}"></script>
+    {% block js %}
+    {% endblock %}
 </body>
 </html>

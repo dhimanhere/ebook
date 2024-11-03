@@ -6,103 +6,172 @@ img{
 	max-height: 40vh;
 	object-fit: cover;
 }
-.ebk-container, .cat-container{
-	width: 80%;
-	margin-inline: auto;
-	margin-bottom: 2rem;
+.container1 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
-.ebk-container>h2, .cat-container>h2{
-	font-size: 1.5rem;
-	margin-bottom: 1.5rem;
-	color: var(--color-black);
-	text-transform: uppercase;
+
+.ss2 {
+  margin: 2rem 0;
 }
-.ebk-wrapper{
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-	grid-gap: 1rem;
+
+h2 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
-.eb-title>h3{
-	line-height: 1;
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
 }
-.eb-title>h3>a{
-	text-decoration: none;
-	font-family: var(--primary-font) !important;
-	font-size: 0.875rem;
-	color: var(--color-black);
+
+.book-card {
+  background: var(--color-white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.eb-btn>a{
-	display: inline-block;
-	margin-top: 0.5rem;
-	text-decoration: none;
-	text-align: center;
-	background: var(--color-link);
-	width: 100%;
-	padding: 0.75rem;
-	color: white;
-	font-family: var(--primary-font);
-	font-size: 0.75rem;
-	text-transform: uppercase;
+
+.book-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
-.cat-wrapper{
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
-	grid-gap: 1rem;
+
+.book-image {
+  position: relative;
+  padding-top: 140%;
 }
-.cat{
-	position: relative;
+
+.book-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.cat>h3{
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0.5rem;
-	background: white;
-	text-align: center;
+
+.book-info {
+  padding: 1rem;
 }
-.cat>h3>a{
-	text-decoration: none;	
-	padding: 5px;
-	display: inline-block;
-	font-family: var(--primary-font);
-	font-size: 1rem;
-	color: var(--color-black);
-	text-transform: uppercase;
+
+.book-info h3 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
-.donate-container{
-	background: var(--color-unknown);
-	padding: 2rem 0;
+
+.book-info h3 a {
+  color: var(--color-text);
+  text-decoration: none;
 }
-.donate-wrapper{
-	width: 80%;
-	margin-inline: auto;
-	text-align: center;
+
+.book-info h3 a:hover {
+  color: var(--color-secondary);
 }
-.donate-wrapper>h2{
-	text-transform: uppercase;
-	font-size: 1.5rem;
-	margin-bottom: 2rem;
+
+.download-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
-.donate-wrapper>p{
-	font-size: 0.875rem;
-	line-height: 1.5;
+
+.download-btn:hover {
+  background-color: var(--color-hover);
 }
-.donate-wrapper>a{
-	text-decoration: none;
-	font-size: 0.875rem;
-	text-transform: uppercase;
-	color: white;
-	background: #fe2712;
-	padding: 0.5rem 2rem;
-	display: inline-block;
-	margin-top: 1.5rem;
-	border-radius: 10px;
+
+.genre-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
 }
-@media (max-width: 420px){
-	.ebk-container, .cat-container{
-		width: 90%;
-	}
-	.ebk-wrapper{
-		grid-template-columns: repeat(2, 1fr);
-	}
+
+.genre-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  box-shadow: var(--shadow);
+}
+
+.genre-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.genre-card h3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+}
+
+.donate {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.donate h2 {
+  color: var(--color-white);
+}
+
+.donate p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.donate-btn {
+  padding: 1rem 3rem;
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.donate-btn:hover {
+  background-color: var(--color-hover);
+}
+
+@media (max-width: 768px) {
+  .container1 {
+    padding: 1rem;
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .genre-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
 }

@@ -2,43 +2,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Register</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>eBookMania - Register</title>
 	<link rel="stylesheet" href="{% static 'css/register.css' %}">
 </head>
 <body>
 	<header class="header">
-		<a href="#">eBookMania</a>
+		<a href="#" class="logo">eBookMania</a>
 	</header>
-	<section class="r-section">
-		<div class="r-container">
-			<div class="r-wrapper">
-				<form method="post" class="form">
-					<h1>Register</h1>
-					{% csrf_token %}
-					<div class="input-container name">
-						{{form.first_name}}
-						{{form.last_name}}
-					</div>
-					<div class="input-container">
-						{{form.username}}
-					</div>
-					<div class="input-container">
-						{{form.email}}
-					</div>
-					<div class="input-container">
-						{{form.password1}}
-					</div>
-					<div class="input-container">
-						{{form.password2}}
-					</div>
-					<button type="submit">Register</button>
-				</form>
-				<div class="login-wrapper">
+
+	<section class="register-section">
+		<div class="container">
+			<form id="registerForm" class="form" method="post">
+				{% csrf_token %}
+				<h1>Register</h1>
+				<div class="input-group name-group">
+					{{form.first_name}}
+					{{form.last_name}}
+				</div>
+				<div class="input-group">
+					{{form.username}}
+				</div>
+				<div class="input-group">
+					{{form.email}}
+				</div>
+				<div class="input-group">
+					{{form.password1}}
+				</div>
+				<div class="input-group">
+					{{form.password2}}
+				</div>
+				<button type="submit">Register</button>
+				<div class="login-link">
 					<p>Already have an account? <a href="#">Login</a></p>
 				</div>
-			</div>
+			</form>
 		</div>
 	</section>
 	<script>
@@ -46,6 +45,26 @@
 		const passWord2 = document.querySelector("#id_password2");
 		passWord1.placeholder = "Password";
 		passWord2.placeholder = "Confirm Password";
+		document.getElementById('registerForm').addEventListener('submit', function(e) {
+			e.preventDefault();
+
+			const password = document.getElementById('password').value;
+			const confirmPassword = document.getElementById('confirmPassword').value;
+
+			if (password !== confirmPassword) {
+				alert('Passwords do not match!');
+				return;
+			}
+
+    // Here you would typically send the form data to your server
+			console.log('Form submitted:', {
+				firstName: document.getElementById('firstName').value,
+				lastName: document.getElementById('lastName').value,
+				username: document.getElementById('username').value,
+				email: document.getElementById('email').value,
+				password: password
+			});
+		});
 	</script>
 </body>
 </html>

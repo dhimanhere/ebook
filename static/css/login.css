@@ -1,0 +1,43 @@
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 4rem);
+    padding: 2rem;
+}
+
+.container {
+    max-width: 400px;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-top: -0.5rem;
+}
+
+.forgot-password a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: var(--color-hover);
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.register-link a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link a:hover {
+    color: var(--color-hover);
+}
