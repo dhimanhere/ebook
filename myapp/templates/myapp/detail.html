@@ -1,8 +1,85 @@
 {% extends 'myapp/base.html' %}
 {% load static %}
 {% block head %}
-
+<title>Detail</title>
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
 {% endblock %}
 {% block content %}
+<div class="d-container">
+	<div class="d-wrapper">
+		<div class="d-i-container">
+			<div class="i-container">
+				<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Featured Image">
+			</div>
+			<div class="d-container">
+				<button class="download-btn">Download</button>
+			</div>
+		</div>
+		<div class="info-container">
+			<div class="title-c">
+				<h1>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Nulla, eligendi?</h1>
+			</div>
+			<div class="dou-wrapper">
+				<h3><span>Uploaded on </span> 25 Jan. 2024 <span>by</span> <a href="#">Some Hub</a></h3>
+			</div>
+			<div class="donate-wrapper">
+				<button class="donate-btn">Support the Creator</button>
+			</div>
+			<div class="des-wrapper">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing, elit. Expedita libero, animi? Nostrum animi est pariatur consectetur voluptate fuga, libero recusandae.</p>
+				<h2>Lorem ipsum dolor sit amet.</h2>
+				<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus facere <i>assumenda quia tempora quisquam eos in quo vitae unde, molestias</i> corrupti debitis nesciunt modi, aliquam dignissimos! Dicta corrupti, laboriosam laborum.</p>
+				<ul>
+					<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, fuga?</li>
+				</ul>
+				<ol>
+					<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, doloremque.</li>
+				</ol>
+				<h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore, excepturi.</h3>
+				<p><strong>Lorem ipsum dolor sit, amet consectetur adipisicing, elit. At, sint!</strong><u>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, veritatis!</u> Lorem ipsum dolor sit amet consectetur adipisicing, elit. Enim placeat, est ex illum, recusandae molestiae.</p>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block js %}
+<script type="text/javascript">
+	// Add smooth scroll behavior to buttons
+	document.querySelectorAll('button').forEach(button => {
+		button.addEventListener('click', (e) => {
+			e.preventDefault();
 
+    // Add click animation
+			button.style.transform = 'scale(0.98)';
+			setTimeout(() => {
+				button.style.transform = 'scale(1)';
+			}, 100);
+
+    // Handle specific button actions
+			if (button.classList.contains('download-btn')) {
+				console.log('Download initiated');
+      // Add download logic here
+			} else if (button.classList.contains('donate-btn')) {
+				console.log('Support modal should open');
+      // Add donation logic here
+			}
+		});
+	});
+
+// Add lazy loading to images
+	document.querySelectorAll('img').forEach(img => {
+		img.loading = 'lazy';
+	});
+
+// Add smooth hover effect to images
+	document.querySelectorAll('.i-container').forEach(container => {
+		container.addEventListener('mouseover', () => {
+			container.style.transform = 'translateY(-5px)';
+		});
+
+		container.addEventListener('mouseout', () => {
+			container.style.transform = 'translateY(0)';
+		});
+	});
+</script>
 {% endblock %}

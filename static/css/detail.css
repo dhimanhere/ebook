@@ -1,0 +1,143 @@
+.d-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.d-wrapper {
+    background-color: var(--color-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+@media (min-width: 768px) {
+    .d-wrapper {
+        grid-template-columns: 1fr 1.5fr;
+    }
+}
+
+.d-i-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.i-container {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.i-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--transition);
+}
+
+.i-container img:hover {
+    transform: scale(1.02);
+}
+
+.d-wrapper button {
+    font-family: var(--header-font);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.download-btn {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.download-btn:hover {
+    background-color: var(--color-hover);
+    transform: translateY(-2px);
+}
+
+.donate-btn {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    margin: 1rem 0;
+}
+
+.donate-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.title-c h1 {
+    font-family: var(--header-font);
+    font-size: 2rem;
+    margin: 0;
+    color: var(--color-primary);
+}
+
+.dou-wrapper h3{
+    font-size: 1rem;
+    color: var(--color-text);
+    opacity: 0.8;
+    margin: 0;
+}
+.dou-wrapper a{
+    text-decoration: none;
+    color: var(--color-text);
+}
+.dou-wrapper span {
+    color: var(--color-secondary);
+}
+
+.des-wrapper {
+    color: var(--color-text);
+}
+
+.des-wrapper h2 {
+    font-family: var(--header-font);
+    color: var(--color-primary);
+    margin: 1.5rem 0 1rem;
+}
+
+.des-wrapper h3 {
+    color: var(--color-primary);
+    margin: 1.5rem 0 1rem;
+}
+
+.des-wrapper p {
+    margin: 1rem 0;
+}
+
+.des-wrapper ul, .des-wrapper ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.des-wrapper li {
+    margin: 0.5rem 0;
+}
+
+.des-wrapper strong {
+    color: var(--color-primary);
+}
+
+.des-wrapper i {
+    color: var(--color-link);
+}
+
+.des-wrapper u {
+    text-decoration-color: var(--color-secondary);
+}

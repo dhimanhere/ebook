@@ -22,6 +22,9 @@ def filterbooks(request):
 	}
 	return render(request, 'myapp/filter.html', context)
 
+def detail(request):
+	return render(request, 'myapp/detail.html')
+
 def search(request):
 	return render(request, 'myapp/search.html')
 

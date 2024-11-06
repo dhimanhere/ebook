@@ -3,12 +3,19 @@
 {% block head %}
 <title>Search</title>
 <link rel="stylesheet" href="{% static 'css/book.css' %}">
-<link rel="stylesheet" href="{% static 'css/search.css' %}">
+<style>
+    .container1 > h2{
+        font-size: 1.125rem !important;
+    }
+    .container1 > h2 > span{
+        color: var(--color-hover);
+    }
+</style>
 {% endblock %}
 {% block content %}
 <section class="latest-releases ss2">
     <div class="container1">
-        <h2>Results for : Latest Release</h2>
+        <h2><span>Results for :</span> Latest Release</h2>
         <div class="book-grid">
             <div class="book-card">
                 <div class="book-image">
