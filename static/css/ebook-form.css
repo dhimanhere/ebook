@@ -1,64 +1,143 @@
-/* ebook form */
+:root{
+  --color-success: #2ecc71;
+    --color-error: #e74c3c;
+}
+.ebk-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@500&display=swap');
-/*   font-family: "Handjet", sans-serif; */
-.ebk-container{
-  width: 90%;
-  margin-inline: auto;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  max-width: 55rem;
+.ebk-wrapper {
+    background-color: var(--color-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 2rem;
 }
-.ebk-wrapper h1{
-  font-family:  "Handjet", sans-serif;
-  text-align: center;
-  margin-bottom: 1rem;
-  font-size: 2.25rem;
-  color: var(--color-black);
+
+.ebk-wrapper h1 {
+    color: var(--color-primary);
+    font-family: var(--header-font);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
 }
-.ebk-input{
-  margin-bottom: 0.875rem;
-  font-family: var(--primary-font);
+
+.ebk-form {
+    display: grid;
+    gap: 1.5rem;
 }
-.ebk-input label{
-  display: block;
-  font-size: 0.875rem;
-  margin-bottom: 0.5rem;
-  color: var(--color-black);
+
+.ebk-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
-.ebk-input input{
-  width: 100%;
-  border: 0;
-  padding: 5px;
-  font-family: var(--primary-font);
-  outline: 0;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  font-size: 0.875rem;
-  color: grey;
-  border-radius: 5px;
+
+.ebk-input label {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
 }
-.ebk-input select{
-  width: 100%;
-  padding: 5px;
-  border: 0;
-  background-color: var(--color-background);
-  border-radius: 5px;
-  font-size: 0.875rem;
+
+.ebk-input input,
+.ebk-input select,
+.ebk-input textarea {
+    padding: 0.8rem;
+    border: 2px solid var(--color-light);
+    border-radius: 8px;
+    font-family: var(--primary-font);
+    font-size: 1rem;
+    transition: var(--transition);
 }
-.ebk-form>button{
-  border: 0;
-  cursor: pointer;
-  padding: 5px 1rem;
-  background: var(--color-black);
-  color: white;
-  font-family: var(--primary-font);
-  border-radius: 5px;
-  font-size: 0.75rem;
+
+.ebk-input input:focus,
+.ebk-input select:focus,
+.ebk-input textarea:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
 }
-.ql-editor{
-  min-height: 10rem !important;
+
+.ebk-input input[type="file"] {
+    padding: 0.5rem;
+    background-color: var(--color-light);
+    cursor: pointer;
 }
-.ql-editor p{
-  font-size: 1rem;
-  font-family: var(--primary-font) !important;
+
+.ebk-input textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button[type="submit"] {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 1rem;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--color-hover);
+    transform: translateY(-1px);
+}
+
+button[type="submit"]:disabled {
+    background-color: var(--color-light);
+    cursor: not-allowed;
+    transform: none;
+}
+
+.message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    animation: slideIn 0.3s ease;
+}
+
+.message-success {
+    background-color: var(--color-success);
+    color: var(--color-white);
+}
+
+.message-error {
+    background-color: var(--color-error);
+    color: var(--color-white);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .ebk-wrapper {
+        padding: 1.5rem;
+    }
+    
+    .ebk-wrapper h1 {
+        font-size: 1.5rem;
+    }
+    
+    .ebk-input input,
+    .ebk-input select,
+    .ebk-input textarea {
+        padding: 0.6rem;
+    }
 }

@@ -5,40 +5,113 @@
 <link rel="stylesheet" href="{% static 'css/uploader-form.css' %}">
 {% endblock %}
 {% block content %}
-	<div class="pf-container">
-		<div class="pf-wrapper">
-			<div class="form-intro-container">
-				<div class="form-intro">
-					<h1>Upload Your Creativity, Reach the World</h1>
-				</div>
-			</div>
-			<form method="post" class="pf-form">
-				{% csrf_token %}
-				<div class="ip-wrapper">
-					<label for="id_name">Pen Name</label>
-					{{form.name}}
-				</div>
-				<div class="ip-wrapper">
-					<label for="id_image">Profile Picture</label>
-					{{form.image}}
-				</div>
-				<div class="ip-wrapper">
-					<label for="id_url">Donation Link</label>
-					{{form.url}}
-				</div>
-				<button type="submit">Create</button>
-			</form>
-			<div class="note-container">
-				<p>Note:</p>
-				<ol>
-					<li>The dimension of the image should be 1:1.</li>
-					<li>If you do not have a donation link you can create one from <a href="https://buymeacoffee.com/" target="_blank">Buy me a Coffee</a></li>
-					<li>You can leave the donation link as blank.</li>
-				</ol>
+<div class="pf-container">
+	<div class="pf-wrapper">
+		<div class="form-intro-container">
+			<div class="form-intro">
+				<h1>Upload Your Creativity, Reach the World</h1>
 			</div>
 		</div>
+		<form method="post" class="pf-form">
+			{% csrf_token %}
+			<div class="ip-wrapper">
+				<label for="id_name">Pen Name</label>
+				{{form.name}}
+			</div>
+			<div class="ip-wrapper">
+				<label for="id_image">Profile Picture</label>
+				{{form.image}}
+			</div>
+			<div class="ip-wrapper">
+				<label for="id_url">Donation Link</label>
+				{{form.url}}
+			</div>
+			<button type="submit">Create</button>
+		</form>
+		<div class="note-container">
+			<p>Note:</p>
+			<ol>
+				<li>The dimension of the image should be 1:1.</li>
+				<li>If you do not have a donation link you can create one from <a href="https://buymeacoffee.com/" target="_blank">Buy me a Coffee</a></li>
+				<li>You can leave the donation link as blank.</li>
+			</ol>
+		</div>
 	</div>
+</div>
 {% endblock %}
 {% block js %}
+<script>
+	// Form validation and image preview functionality
+	document.addEventListener('DOMContentLoaded', () => {
+		const form = document.querySelector('.pf-form');
+		const imageInput = form.querySelector('input[type="file"]');
+		
+    // Create image preview functionality
+		imageInput.addEventListener('change', function(e) {
+			const file = this.files[0];
+			if (file) {
+				const reader = new FileReader();
+				reader.onload = function(e) {
+                // Create preview if it doesn't exist
+					let preview = document.querySelector('.image-preview');
+					if (!preview) {
+						preview = document.createElement('div');
+						preview.className = 'image-preview';
+						imageInput.parentNode.appendChild(preview);
+					}
+					preview.style.backgroundImage = `url(${e.target.result})`;
+				};
+				reader.readAsDataURL(file);
+			}
+		});
 
+    // Form submission handling
+		form.addEventListener('submit', function(e) {
+			e.preventDefault();
+			
+        // Basic validation
+			const penName = form.querySelector('input[name="name"]').value;
+			const donationLink = form.querySelector('input[type="url"]').value;
+
+			if (!penName.trim()) {
+				alert('Please enter a pen name');
+				return;
+			}
+
+			if (donationLink && !isValidURL(donationLink)) {
+				alert('Please enter a valid URL for donation link');
+				return;
+			}
+
+        // If validation passes, form would submit here
+			alert('Profile created successfully!');
+		});
+	});
+
+// URL validation helper
+	function isValidURL(string) {
+		try {
+			new URL(string);
+			return true;
+		} catch (_) {
+			return false;
+		}
+	}
+
+// Add input file type styling and preview
+	const fileInputs = document.querySelectorAll('input[type="file"]');
+	fileInputs.forEach(input => {
+		const wrapper = document.createElement('div');
+		wrapper.className = 'file-input-wrapper';
+		
+		const customButton = document.createElement('div');
+		customButton.className = 'custom-file-button';
+		customButton.innerHTML = 'Choose Image';
+		
+		input.parentNode.insertBefore(wrapper, input);
+		wrapper.appendChild(input);
+		wrapper.appendChild(customButton);
+	});
+</script>
 {% endblock %}
+

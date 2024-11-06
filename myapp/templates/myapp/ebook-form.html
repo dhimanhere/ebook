@@ -10,40 +10,46 @@
 	<div class="ebk-wrapper">
 		<h1>Showcase Your Creativity</h1>
 		<form method="post" class="ebk-form">
-			{% csrf_token %}
 			<div class="ebk-input">
-				<label for="id_title">Name of the ebook</label>
+				<label for="title">Name of the ebook</label>
 				{{form.title}}
 			</div>
 			<div class="ebk-input">
-				<label for="id_thumbnail">Cover Photo</label>
+				<label for="thumbnail">Cover Photo</label>
 				{{form.thumbnail}}
 			</div>
 			<div class="ebk-input">
-				<label for="id_category">Category</label>
+				<label for="category">Category</label>
 				{{form.category}}
 			</div>
 			<div class="ebk-input">
-				<label for="id_author">Author of the eBook</label>
+				<label for="author">Author of the eBook</label>
 				{{form.author}}
 			</div>
 			<div class="ebk-input">
-				<label for="id_language">Language</label>
+				<label for="language">Language</label>
 				{{form.language}}
 			</div>
 			<div class="ebk-input">
-				<label for="id_book">eBook File</label>
+				<label for="book">eBook File</label>
 				{{form.book}}
 			</div>
+			<div class="progress-container">
+				<div class="progress-bar" style="width: 0%"></div>
+			</div>
 			<div class="ebk-input">
-				<label for="id_description">Description</label>
+				<label for="description">Description</label>
 				{{form.description}}
 			</div>
-			<button type="submit">Upload</button>
+			<button type="submit">Publish eBook</button>
 		</form>
 	</div>
 </div>
 {% endblock %}
 {% block js %}
 
+<script type="module">
+	document.querySelector('.ebk-form').insertAdjacentHTML('afterend', progressHTML);
+</script>
 {% endblock %}
+

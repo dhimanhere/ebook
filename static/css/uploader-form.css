@@ -1,69 +1,122 @@
-@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@500&display=swap');
-/*   font-family: "Handjet", sans-serif; */
+.pf-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
 
-.pf-container{
-	width: 90%;
-	max-width: 30rem;
-	margin-inline: auto;
-	margin-top: 3rem;
+.pf-wrapper {
+    background-color: var(--color-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 2rem;
 }
-.form-intro>h1{
-	font-family: "Handjet", sans-serif;
-	font-size: 2.25rem;
-	text-align: center;
-	color: var(--color-black);
+
+.form-intro-container {
+    text-align: center;
+    margin-bottom: 2rem;
 }
-.pf-form label{
-	display: block;
-	font-family: var(--primary-font);
-	color: var(--color-black);
-	font-size: 0.875rem;
-	margin-bottom: 0.25rem;
+
+.form-intro h1 {
+    font-family: var(--header-font);
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    margin: 0;
 }
-.ip-wrapper{
-	margin-bottom: 1rem;
+
+.pf-form {
+    max-width: 600px;
+    margin: 0 auto;
 }
-.ip-wrapper input{
-	width: 100%;
-	border: 0;
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-	border-radius: 5px;
-	padding: 3px 5px;
-	outline: 0;
-	font-family: var(--primary-font);
-	font-size: 0.875rem;
-	color: grey;
+
+.ip-wrapper {
+    margin-bottom: 1.5rem;
 }
-.pf-form button{
-	padding: 0.25rem 1rem;
-	border: 0;
-	background-color: var(--color-black);
-	color: white;
-	border-radius: 5px;
-	font-family: var(--primary-font);
-	font-size: 0.875rem;
-	cursor: pointer;
+
+.ip-wrapper label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
 }
-.note-container{
-	margin-top: 1rem;
+
+.ip-wrapper input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--color-light);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
 }
-.note-container>p{
-	margin-bottom: 0.5rem;
-	font-family: var(--header-font);
-	font-size: 1.25rem;
-	color: red;
+
+.ip-wrapper input:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
 }
-.note-container>ol{
-	padding-left: 1rem;
-	font-family: var(--primary-font);
-  font-size: 0.875rem;
-	display: grid;
-	grid-gap: 0.25rem;
-	color: gray;
+
+.pf-form button[type="submit"] {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: var(--transition);
 }
-.note-container>ol>li>a{
-	font-family: var(--primary-font);
-  font-size: 0.875rem;
-	color: gray;
-	font-style: italic;
+
+.pf-form button[type="submit"]:hover {
+    background-color: var(--color-hover);
+    transform: translateY(-2px);
+}
+
+.note-container {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: var(--color-light);
+    border-radius: 8px;
+}
+
+.note-container p {
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+}
+
+.note-container ol {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.note-container li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.note-container a {
+    color: var(--color-link);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.note-container a:hover {
+    color: var(--color-hover);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .pf-container {
+        padding: 1rem;
+    }
+    
+    .pf-wrapper {
+        padding: 1.5rem;
+    }
+    
+    .form-intro h1 {
+        font-size: 2rem;
+    }
 }

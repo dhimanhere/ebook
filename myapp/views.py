@@ -8,7 +8,11 @@ from django.http import JsonResponse
 
 # Create your views here.
 def home(request):
-	return render(request, "myapp/home.html")
+	p = EbookModel.objects.all()
+	context = {
+		p : p,
+	}
+	return render(request, "myapp/home.html", context)
 
 def filterbooks(request):
 	

@@ -5,66 +5,54 @@
 <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
 {% endblock %}
 {% block content %}
-<div class="dash-container">
-	<div class="dash-top">
-		<div class="box">
-			<h2>Total Downloads</h2>
-			<div class="icon-num">550</div>
+<div class="dashboard">
+	<div class="dashboard-grid">
+		<div class="metrics-section">
+			<div class="metric-grid">
+				<div class="metric-card">
+					<h3>Page Views</h3>
+					<div class="metric-value">100,123</div>
+				</div>
+				<div class="metric-card">
+					<h3>Total Downloads</h3>
+					<div class="metric-value">5000</div>
+				</div>
+				<div class="metric-card">
+					<h3>Total eBooks</h3>
+					<div class="metric-value">20</div>
+				</div>
+			</div>
 		</div>
-		<div class="box">
-			<h2>Total Uploads</h2>
-			<div class="icon-num">10</div>
-		</div>
-	</div>
-	<div class="dash-books">
-		<canvas id="statistics"></canvas>
-	</div>
-	<div class="latest-container">
-		<div class="latest-wrapper">
-			<h2>Your latest uploads</h2>
-			<ol>
-				<li>
-					<a href="#">Lorem ipsum dolor sit amet.</a>
-				</li>
-				<li>
-					<a href="#">Lorem ipsum dolor, sit amet.</a>
-				</li>
-				<li>
-					<a href="#">Lorem ipsum dolor sit amet.</a>
-				</li>
-				<li>
-					<a href="#">Lorem ipsum dolor sit, amet.</a>
-				</li>
-				<li>
-					<a href="#">Lorem ipsum dolor sit, amet.</a>
-				</li>
-			</ol>
+		
+		<div class="details-section">
+			<div class="details-grid">
+				<div class="metric-card top-ebooks">
+					<h3>Top Performing eBooks</h3>
+					<div class="top-ebooks-list">
+						<div class="top-ebook-item">
+							<div class="top-ebook-info">
+								<span class="top-ebook-title">Lorem ipsum dolor sit amet.</span>
+								<div class="top-ebook-stats">
+									<span class="downloads">267 downloads</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="metric-card uploads">
+					<h3>Latest Uploads</h3>
+					<div class="uploads-list">
+						<div class="upload-item">
+							<span class="upload-title">Lorem ipsum dolor sit, amet.</span>
+							<span class="upload-date">25-10-2024</span>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
 {% endblock %}
 {% block js %}
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-	console.log("This is a test");
-	const chtCon = document.querySelector("#statistics");
-	new Chart(chtCon, {
-		type: 'bar',
-		data: {
-			labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-			datasets: [{
-				label: '# of Votes',
-				data: [12, 19, 3, 5, 2, 3],
-				borderWidth: 1
-			}]
-		},
-		options: {
-			scales: {
-				y: {
-					beginAtZero: true
-				}
-			}
-		}
-	});
-</script>
+
 {% endblock %}

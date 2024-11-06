@@ -5,6 +5,7 @@
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/book.css' %}">
 {% endblock %}
 {% block content %}
 <section class="ss-1">
@@ -29,60 +30,17 @@
 	<div class="container1">
 		<h2>Latest Release</h2>
 		<div class="book-grid">
+			{% for p in p %}
 			<div class="book-card">
 				<div class="book-image">
 					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
 				</div>
 				<div class="book-info">
 					<h3><a href="#">Lorem, ipsum dolor.</a></h3>
-					<button class="download-btn">Download</button>
+					<button class="download-btn" onclick="directDownload('{{ p.book.url }}', '{{ p.title }}')" >Download</button>
 				</div>
 			</div>
-			<div class="book-card">
-				<div class="book-image">
-					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-				</div>
-				<div class="book-info">
-					<h3><a href="#">Lorem, ipsum dolor.</a></h3>
-					<button class="download-btn">Download</button>
-				</div>
-			</div>
-			<div class="book-card">
-				<div class="book-image">
-					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-				</div>
-				<div class="book-info">
-					<h3><a href="#">Lorem, ipsum dolor.</a></h3>
-					<button class="download-btn">Download</button>
-				</div>
-			</div>
-			<div class="book-card">
-				<div class="book-image">
-					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-				</div>
-				<div class="book-info">
-					<h3><a href="#">Lorem, ipsum dolor.</a></h3>
-					<button class="download-btn">Download</button>
-				</div>
-			</div>
-			<div class="book-card">
-				<div class="book-image">
-					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-				</div>
-				<div class="book-info">
-					<h3><a href="#">Lorem, ipsum dolor.</a></h3>
-					<button class="download-btn">Download</button>
-				</div>
-			</div>
-			<div class="book-card">
-				<div class="book-image">
-					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-				</div>
-				<div class="book-info">
-					<h3><a href="#">Lorem, ipsum dolor.</a></h3>
-					<button class="download-btn">Download</button>
-				</div>
-			</div>
+			{% endfor %}
 		</div>
 	</div>
 </section>
@@ -121,78 +79,17 @@
 	<div class="container1">
 		<h2>Educational Release</h2>
 		<div class="book-grid">
+			{% for p in p %}
 			<div class="book-card">
 				<div class="book-image">
 					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
 				</div>
 				<div class="book-info">
-					<h3><a href="#">Lorem ipsum dolor, sit amet.</a></h3>
-					<button class="download-btn">Download</button>
+					<h3><a href="#">Lorem, ipsum dolor.</a></h3>
+					<button class="download-btn" onclick="directDownload('{{ p.book.url }}', '{{ p.title }}')" >Download</button>
 				</div>
 			</div>
-			<div class="book-card">
-				<div class="book-image">
-					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-				</div>
-				<div class="book-info">
-					<h3><a href="#">Lorem ipsum dolor, sit amet.</a></h3>
-					<button class="download-btn">Download</button>
-				</div>
-			</div>
-			<div class="book-card">
-				<div class="book-image">
-					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-				</div>
-				<div class="book-info">
-					<h3><a href="#">Lorem ipsum dolor, sit amet.</a></h3>
-					<button class="download-btn">Download</button>
-				</div>
-			</div>
-			<div class="book-card">
-				<div class="book-image">
-					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-				</div>
-				<div class="book-info">
-					<h3><a href="#">Lorem ipsum dolor, sit amet.</a></h3>
-					<button class="download-btn">Download</button>
-				</div>
-			</div>
-			<div class="book-card">
-				<div class="book-image">
-					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-				</div>
-				<div class="book-info">
-					<h3><a href="#">Lorem ipsum dolor, sit amet.</a></h3>
-					<button class="download-btn">Download</button>
-				</div>
-			</div>
-			<div class="book-card">
-				<div class="book-image">
-					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-				</div>
-				<div class="book-info">
-					<h3><a href="#">Lorem ipsum dolor, sit amet.</a></h3>
-					<button class="download-btn">Download</button>
-				</div>
-			</div>
-			<div class="book-card">
-				<div class="book-image">
-					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-				</div>
-				<div class="book-info">
-					<h3><a href="#">Lorem ipsum dolor, sit amet.</a></h3>
-					<button class="download-btn">Download</button>
-				</div>
-			</div>
-			<div class="book-card">
-				<div class="book-image">
-					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-				</div>
-				<div class="book-info">
-					<h3><a href="#">Lorem ipsum dolor, sit amet.</a></h3>
-					<button class="download-btn">Download</button>
-				</div>
-			</div>
+			{% endfor %}
 		</div>
 	</div>
 </section>
@@ -208,4 +105,25 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="{% static 'js/home.js' %}"></script>
+
+<script>
+	function directDownload(fileUrl, title) {
+    // Create a hidden anchor element
+		const link = document.createElement('a');
+		link.style.display = 'none';
+
+    // Set the download attributes
+		link.href = fileUrl;
+    	link.download = title;  // This might not work if file is hosted on different domain
+    
+    // Append to body, click, and remove
+    	document.body.appendChild(link);
+    	link.click();
+    
+    // Cleanup
+	    setTimeout(() => {
+	    	document.body.removeChild(link);
+	    }, 100);
+}
+</script>
 {% endblock %}

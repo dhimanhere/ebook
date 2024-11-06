@@ -1,63 +1,156 @@
-@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@500&display=swap');
-.dash-container{
-  width: 90%;
-  max-width: 55rem;
-  margin-inline: auto;
-  margin-top: 1rem;
+.dashboard {
+  min-height: 70vh;
+  padding: 1rem;
 }
-.dash-top{
+
+.dashboard-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.metrics-section {
+  flex: 0 0 auto;
+}
+
+.details-section {
+  flex: 1 1 auto;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.details-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 2rem;
-  margin-bottom: 2.5rem;
+  gap: 1.5rem;
+  height: 100%;
 }
-.box{
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 2rem;
-  text-align: center;
-  display: grid;
-  grid-gap: 1rem;
+
+.metric-card {
+  background: var(--color-white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid var(--color-light);
+  display: flex;
+  flex-direction: column;
 }
-.box>h2{
-  font-size: 1.25rem;
-  text-transform: uppercase;
-  color: var(--black-color);
+
+.metric-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-secondary);
 }
-.box>.icon-num{
-  font-size: 2.5rem;
-  color: blue;
-  font-weight: 600;
-  font-family: "Handjet", sans-serif;
-}
-.dash-books, #statistics{
-  width: 100% !important;
-}
-.latest-container{
-  margin-top: 2rem;
-  border-top: 1px solid black;
-  padding-top: 1rem;
-  margin-bottom: 2rem;
-}
-.latest-wrapper>h2{
-  text-align: center;
+
+.metric-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
   font-family: var(--header-font);
-  font-size: 1.5rem;
+  font-weight: 600;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
-.latest-wrapper>ol{
-  margin-top: 1.5rem;
-  padding-left: 1.5rem;
-  display: grid;
-  grid-gap: 1rem;
+
+.metric-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--color-secondary);
+  font-family: var(--header-font);
+  line-height: 1.2;
 }
-.latest-wrapper>ol>li>a{
-  text-decoration: none;
-  font-family: var(--primary-font);
-  color: var(--black-color);
-  font-size: 1.125rem;
+
+.top-ebooks-list, .uploads-list {
+  margin-top: 1rem;
+  flex: 1;
+  overflow-y: auto;
+  max-height: 300px;
 }
-@media (max-width: 500px){
-  .dash-top{
+
+.top-ebook-item {
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-light);
+  transition: var(--transition);
+}
+
+.top-ebook-item:hover {
+  background-color: var(--color-light);
+  border-radius: 8px;
+}
+
+.top-ebook-item:last-child {
+  border-bottom: none;
+}
+
+.top-ebook-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.top-ebook-title {
+  font-weight: 500;
+  color: var(--color-primary);
+  font-size: 1.1rem;
+}
+
+.top-ebook-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-link);
+}
+.upload-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-light);
+  transition: var(--transition);
+}
+
+.upload-item:hover {
+  background-color: var(--color-light);
+  border-radius: 8px;
+}
+
+.upload-item:last-child {
+  border-bottom: none;
+}
+
+.upload-title {
+  font-weight: 500;
+  color: var(--color-primary);
+  font-size: 1.1rem;
+}
+
+.upload-date {
+  color: var(--color-link);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .details-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .metric-value {
+    font-size: 2rem;
+  }
+  
+  .dashboard {
+    padding: 0.5rem;
+  }
+  
+  .top-ebooks-list, .uploads-list {
+    max-height: 250px;
   }
 }

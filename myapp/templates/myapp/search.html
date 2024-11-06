@@ -2,188 +2,66 @@
 {% load static %}
 {% block head %}
 <title>Search</title>
-<link rel="stylesheet" href="{% static 'css/filter.css' %}">
-<style>
-    .cat-header{
-        margin-bottom: 1rem;
-        padding: 1rem;
-        border-bottom: 1px solid var(--color-background);
-        border-top: 1px solid var(--color-background);
-    }
-    .cat-header>h1{
-        font-size: 0.875rem;
-        font-family: var(--primary-font);
-        font-weight: 400;
-        text-align: center;
-    }
-    .cat-header>h1>span{
-        font-family: var(--header-font) !important;
-        font-weight: 500 !important;
-        display: inline-block;
-    }
-</style>
+<link rel="stylesheet" href="{% static 'css/book.css' %}">
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
 {% endblock %}
 {% block content %}
-<section class="f-sec">
-    <header class="cat-header">
-        <h1>Showing results for: <span>Search Title</span></h1>
-    </header>
-    <div class="ebk-container">
-        <div class="ebk-wrapper">
-            <div class="ebk">
-                <div class="eb-img">
-                    <a href="#">
-                        <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="">
-                    </a>
+<section class="latest-releases ss2">
+    <div class="container1">
+        <h2>Results for : Latest Release</h2>
+        <div class="book-grid">
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
                 </div>
-                <div class="eb-title">
-                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                </div>
-                <div class="eb-btn">
-                    <a href="#">Download</a>
+                <div class="book-info">
+                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
+                    <button class="download-btn">Download</button>
                 </div>
             </div>
-            <div class="ebk">
-                <div class="eb-img">
-                    <a href="#">
-                        <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="">
-                    </a>
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
                 </div>
-                <div class="eb-title">
-                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                </div>
-                <div class="eb-btn">
-                    <a href="#">Download</a>
+                <div class="book-info">
+                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
+                    <button class="download-btn">Download</button>
                 </div>
             </div>
-            <div class="ebk">
-                <div class="eb-img">
-                    <a href="#">
-                        <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="">
-                    </a>
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
                 </div>
-                <div class="eb-title">
-                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                </div>
-                <div class="eb-btn">
-                    <a href="#">Download</a>
+                <div class="book-info">
+                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
+                    <button class="download-btn">Download</button>
                 </div>
             </div>
-            <div class="ebk">
-                <div class="eb-img">
-                    <a href="#">
-                        <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="">
-                    </a>
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
                 </div>
-                <div class="eb-title">
-                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                </div>
-                <div class="eb-btn">
-                    <a href="#">Download</a>
+                <div class="book-info">
+                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
+                    <button class="download-btn">Download</button>
                 </div>
             </div>
-            <div class="ebk">
-                <div class="eb-img">
-                    <a href="#">
-                        <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="">
-                    </a>
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
                 </div>
-                <div class="eb-title">
-                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                </div>
-                <div class="eb-btn">
-                    <a href="#">Download</a>
+                <div class="book-info">
+                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
+                    <button class="download-btn">Download</button>
                 </div>
             </div>
-            <div class="ebk">
-                <div class="eb-img">
-                    <a href="#">
-                        <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="">
-                    </a>
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
                 </div>
-                <div class="eb-title">
-                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                </div>
-                <div class="eb-btn">
-                    <a href="#">Download</a>
-                </div>
-            </div>
-            <div class="ebk">
-                <div class="eb-img">
-                    <a href="#">
-                        <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="">
-                    </a>
-                </div>
-                <div class="eb-title">
-                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                </div>
-                <div class="eb-btn">
-                    <a href="#">Download</a>
-                </div>
-            </div>
-            <div class="ebk">
-                <div class="eb-img">
-                    <a href="#">
-                        <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="">
-                    </a>
-                </div>
-                <div class="eb-title">
-                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                </div>
-                <div class="eb-btn">
-                    <a href="#">Download</a>
-                </div>
-            </div>
-            <div class="ebk">
-                <div class="eb-img">
-                    <a href="#">
-                        <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="">
-                    </a>
-                </div>
-                <div class="eb-title">
-                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                </div>
-                <div class="eb-btn">
-                    <a href="#">Download</a>
-                </div>
-            </div>
-            <div class="ebk">
-                <div class="eb-img">
-                    <a href="#">
-                        <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="">
-                    </a>
-                </div>
-                <div class="eb-title">
-                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                </div>
-                <div class="eb-btn">
-                    <a href="#">Download</a>
-                </div>
-            </div>
-            <div class="ebk">
-                <div class="eb-img">
-                    <a href="#">
-                        <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="">
-                    </a>
-                </div>
-                <div class="eb-title">
-                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                </div>
-                <div class="eb-btn">
-                    <a href="#">Download</a>
-                </div>
-            </div>
-            <div class="ebk">
-                <div class="eb-img">
-                    <a href="#">
-                        <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="">
-                    </a>
-                </div>
-                <div class="eb-title">
-                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                </div>
-                <div class="eb-btn">
-                    <a href="#">Download</a>
+                <div class="book-info">
+                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
+                    <button class="download-btn">Download</button>
                 </div>
             </div>
         </div>
@@ -191,4 +69,13 @@
 </section>
 {% endblock %}
 {% block js %}
+<script>
+    document.querySelectorAll('.book-card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-5px)';
+    });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+    });
+</script>
 {% endblock %}
