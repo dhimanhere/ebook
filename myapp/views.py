@@ -3,14 +3,16 @@ from .forms import UserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .forms import BookFilter, EbookModelForm, UploaderForm
-from .models import EbookModel, Uploader
+from .models import EbookModel, Uploader, PageViews, DownloadCount
 from django.http import JsonResponse
+from django.views.decorators.http import require_POST
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 def home(request):
-	p = EbookModel.objects.all()
+	ebook = EbookModel.objects.all()
 	context = {
-		p : p,
+		'ebook' : ebook,
 	}
 	return render(request, "myapp/home.html", context)
 
@@ -22,8 +24,17 @@ def filterbooks(request):
 	}
 	return render(request, 'myapp/filter.html', context)
 
-def detail(request):
-	return render(request, 'myapp/detail.html')
+def detail(request, slug):
+	ebook = get_object_or_404(EbookModel, slug=slug)
+	page_view, created = PageViews.objects.get_or_create(ebook=ebook)
+	page_view.count = (page_view.count or 0) + 1
+	page_view.save()
+	context = {
+		'ebook': ebook,
+        'download_count': ebook.downloadcount_set.first().count if ebook.downloadcount_set.exists() else 0,
+        'page_views': page_view.count,
+	}
+	return render(request, 'myapp/detail.html', context)
 
 def search(request):
 	return render(request, 'myapp/search.html')
@@ -102,3 +113,24 @@ def dashboard(request):
 
 	}
 	return render(request, 'myapp/dashboard.html', context)
+
+@require_POST
+def track_download(request):
+    try:
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            ebook_id = request.POST.get('ebook_id')
+            if not ebook_id:
+                return JsonResponse({'status': 'error', 'message': 'No ebook_id provided'}, status=400)
+            
+            ebook = get_object_or_404(EbookModel, id=ebook_id)
+            download_count, created = DownloadCount.objects.get_or_create(ebook=ebook)
+            download_count.count = (download_count.count or 0) + 1
+            download_count.save()
+            
+            return JsonResponse({
+                'status': 'success',
+                'count': download_count.count
+            })
+        return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)}, status=500)

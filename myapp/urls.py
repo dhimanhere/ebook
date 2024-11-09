@@ -21,4 +21,5 @@ urlpatterns = [
 	path("dashboard/", views.dashboard, name = "dashboard"),
 	path("category/", views.category, name = "category"),
 	path("detail/", views.detail, name = "detail"),
+    path('track-download/', views.track_download, name='track_download'),
 ]

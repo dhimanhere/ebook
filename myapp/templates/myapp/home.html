@@ -30,14 +30,14 @@
 	<div class="container1">
 		<h2>Latest Release</h2>
 		<div class="book-grid">
-			{% for p in p %}
+			{% for ebook in ebook %}
 			<div class="book-card">
 				<div class="book-image">
 					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
 				</div>
 				<div class="book-info">
 					<h3><a href="#">Lorem, ipsum dolor.</a></h3>
-					<button class="download-btn" onclick="directDownload('{{ p.book.url }}', '{{ p.title }}')" >Download</button>
+					<button class="download-btn" onclick="directDownload('{{ ebook.book.url }}', '{{ ebook.title }}')" data-ebook-id="{{ ebook.id }}" data-ebook-file="{{ ebook.book.url }}">Download</button>
 				</div>
 			</div>
 			{% endfor %}
@@ -78,15 +78,16 @@
 <section class="educational ss2">
 	<div class="container1">
 		<h2>Educational Release</h2>
+		{% csrf_token %}
 		<div class="book-grid">
-			{% for p in p %}
+			{% for p in ebook %}
 			<div class="book-card">
 				<div class="book-image">
 					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
 				</div>
 				<div class="book-info">
 					<h3><a href="#">Lorem, ipsum dolor.</a></h3>
-					<button class="download-btn" onclick="directDownload('{{ p.book.url }}', '{{ p.title }}')" >Download</button>
+					<button class="download-btn" onclick="directDownload('{{ p.book.url }}', '{{ p.title }}')" data-ebook-id="{{ p.id }}" data-ebook-file="{{ p.book.url }}">Download</button>
 				</div>
 			</div>
 			{% endfor %}
@@ -105,6 +106,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="{% static 'js/home.js' %}"></script>
+<script src="{% static 'js/tracking.js' %}"></script>
 
 <script>
 	function directDownload(fileUrl, title) {

@@ -47,3 +47,19 @@ class EbookModel(models.Model):
 
 	def __str__(self):
 		return self.title
+
+class DownloadCount(models.Model):
+	ebook = models.ForeignKey(EbookModel, on_delete = models.CASCADE)
+	count = models.PositiveIntegerField(default = 0, null = True, blank=False)
+	created_on = models.DateTimeField(auto_now_add = True)
+
+	class Meta:
+		verbose_name_plural = 'Downloads'
+
+class PageViews(models.Model):
+	ebook = models.ForeignKey(EbookModel, on_delete = models.CASCADE)
+	count = models.PositiveIntegerField(default = 0, null = True, blank=False)
+	creat = models.DateTimeField(auto_now_add = True)
+
+	class Meta:
+		verbose_name_plural = 'Page Views'
