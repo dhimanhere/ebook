@@ -11,67 +11,40 @@
         color: var(--color-hover);
     }
 </style>
+{% if s_ebk.has_next %}
+<link rel="stylesheet" href="{% static 'css/loader.css' %}">
+{% endif %}
 {% endblock %}
 {% block content %}
 <section class="latest-releases ss2">
     <div class="container1">
-        <h2><span>Results for :</span> Latest Release</h2>
-        <div class="book-grid">
-            <div class="book-card">
+        <h2><span>Results for :</span> {{query}}</h2>
+        {% if s_ebk %}
+        <div class="book-grid infinite-container">
+            {% for ebk in s_ebk %}
+            <div class="book-card infinite-item">
                 <div class="book-image">
-                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
+                    <img src="{{ebk.thumbnail.url}}" alt="{{ebk.title}}">
                 </div>
                 <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                    <button class="download-btn">Download</button>
+                    <h3><a href="#">{{ebk.title}}</a></h3>
+                     <button class="download-btn" onclick="directDownload('{{ ebk.book.url }}', '{{ ebk.title }}')" data-ebook-id="{{ ebk.id }}">Download</button>
                 </div>
             </div>
-            <div class="book-card">
-                <div class="book-image">
-                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-                </div>
-                <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                    <button class="download-btn">Download</button>
-                </div>
-            </div>
-            <div class="book-card">
-                <div class="book-image">
-                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-                </div>
-                <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                    <button class="download-btn">Download</button>
-                </div>
-            </div>
-            <div class="book-card">
-                <div class="book-image">
-                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-                </div>
-                <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                    <button class="download-btn">Download</button>
-                </div>
-            </div>
-            <div class="book-card">
-                <div class="book-image">
-                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-                </div>
-                <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                    <button class="download-btn">Download</button>
-                </div>
-            </div>
-            <div class="book-card">
-                <div class="book-image">
-                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-                </div>
-                <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                    <button class="download-btn">Download</button>
-                </div>
-            </div>
+            {% endfor %}
         </div>
+        {% else %}
+            <div class="no-result-wrapper">
+                <h3>No result found</h3>
+                <p> We couldn't find what you're looking for. Please try again later. </p>
+            </div>
+        {% endif %}
+        {% if s_ebk.has_next %}
+        <a href="?page={{ s_ebk.next_page_number }}" display = "none" class="infinite-more-link">next</a>
+        <div class="loader-wrapper">
+            <div class="loader"></div>
+        </div>
+        {% endif %}
     </div>
 </section>
 {% endblock %}
@@ -85,4 +58,11 @@
         card.style.transform = 'translateY(0)';
     });
 </script>
+<script src="{% static 'js/tracking.js' %}"></script>
+{% if s_ebk.has_next %}
+<script src="{% static 'waypoint/jquery.js' %}"></script>
+<script src="{% static 'waypoint/waypoint.js' %}"></script>
+<script src="{% static 'waypoint/infinite.js' %}"></script>
+<script src="{% static 'js/pagination.js' %}"></script>
+{% endif %}
 {% endblock %}

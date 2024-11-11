@@ -16,7 +16,7 @@
                 </div>
                 <div class="book-info">
                     <h3><a href="#">{{cat.tittle}}</a></h3>
-                    <button class="download-btn" onclick="directDownload('{{ cat.book.url }}', '{{ p.title }}')" data-ebook-id="{{ cat.id }}">Download</button>
+                    <button class="download-btn" onclick="directDownload('{{ cat.book.url }}', '{{ cat.title }}')" data-ebook-id="{{ cat.id }}">Download</button>
                 </div>
             </div>
             {% endfor %}

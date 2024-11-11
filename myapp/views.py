@@ -10,6 +10,7 @@ from django.shortcuts import get_object_or_404
 from django.utils import timezone
 from datetime import timedelta
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -70,6 +71,7 @@ def search(request):
 		s_ebk = paginate_search.get_page(page_search)
 		
 	context = {
+		'query' : query,
 		'ebook' : ebook,
 		's_ebk' : s_ebk,
 	}
@@ -128,6 +130,7 @@ def loginview(request):
 		messages.warning(request, "This is our fault")
 	return render(request, 'myapp/login.html')
 
+@login_required(login_url="/login/")
 def uploaderFormView(request):
 	if request.method == "POST":
 		form = UploaderForm(request.POST)
@@ -142,6 +145,10 @@ def uploaderFormView(request):
 		form = UploaderForm()
 	return render(request, 'myapp/uploader-form.html', {'form':form})
 
+from .decorators import require_uploader
+
+@login_required(login_url="/login/")
+@require_uploader
 def ebookFormView(request):
 	if request.method == "POST":
 		form = EbookModelForm(request.POST, request.FILES)
@@ -156,6 +163,7 @@ def ebookFormView(request):
 		form = EbookModelForm()
 	return render(request, 'myapp/ebook-form.html', {'form':form})
 
+@login_required(login_url="/login/")
 def dashboard(request):
 
 	total_ebooks = EbookModel.objects.filter(uploader = request.user.uploader).order_by("-created_on")
@@ -214,3 +222,11 @@ def track_download(request):
         return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+
+def logoutview(request):
+	logout(request)
+
+@login_required(login_url="/login/")
+@require_uploader
+def profileview(request):
+	return render(request, 'myapp/profile.html')

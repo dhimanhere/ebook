@@ -33,17 +33,21 @@
             </div>
             <ul class="nav-list">
                 <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
-                <li><a href="#" class="nav-link">Store</a></li>
+                <li><a href="{% url 'filterbooks' %}" class="nav-link">Store</a></li>
+                {% if user.is_authenticated %}
                 <li class="user-menu">
-                    <span class="username">JohnDoe</span>
+                    <span class="username">{{request.uername}}</span>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Upload eBook</a></li>
+                        <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                        <li><a href="{% url 'profile'  %}">Profile</a></li>
+                        <li><a href="{% url 'ebook-form' %}">Upload eBook</a></li>
                         <li><a href="#">My Uploads</a></li>
-                        <li><a href="#">Logout</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
                     </ul>
                 </li>
+                {% else %}
+                <li><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+                {% endif %}
             </ul>
         </div>
     </nav>
