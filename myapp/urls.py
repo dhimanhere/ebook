@@ -4,7 +4,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
 	path("", views.home, name="home"),
-	path("filter/", views.filterbooks, name="filterbooks"),
+	path("store/", views.filterbooks, name="filterbooks"),
 	path("register/", views.registerview, name = "register"),
 	path("search/", views.search, name = "search"),
 	path("login/", views.loginview, name = "login"),
@@ -19,7 +19,7 @@ urlpatterns = [
 	path("author-profile-form/", views.uploaderFormView, name = "uploader-form"),
 	path("upload/ebook/", views.ebookFormView, name= "ebook-form"),
 	path("dashboard/", views.dashboard, name = "dashboard"),
-	path("category/", views.category, name = "category"),
+	path("category/<slug:slug>", views.category, name = "category"),
 	path("detail/", views.detail, name = "detail"),
     path('track-download/', views.track_download, name='track_download'),
 ]

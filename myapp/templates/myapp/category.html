@@ -7,62 +7,19 @@
 {% block content %}
 <section class="latest-releases ss2">
     <div class="container1">
-        <h2>Category</h2>
+        <h2>{{category.name}}</h2>
         <div class="book-grid">
+            {% for cat in cat_number %}
             <div class="book-card">
                 <div class="book-image">
                     <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
                 </div>
                 <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                    <button class="download-btn">Download</button>
+                    <h3><a href="#">{{cat.tittle}}</a></h3>
+                    <button class="download-btn" onclick="directDownload('{{ cat.book.url }}', '{{ p.title }}')" data-ebook-id="{{ cat.id }}">Download</button>
                 </div>
             </div>
-            <div class="book-card">
-                <div class="book-image">
-                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-                </div>
-                <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                    <button class="download-btn">Download</button>
-                </div>
-            </div>
-            <div class="book-card">
-                <div class="book-image">
-                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-                </div>
-                <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                    <button class="download-btn">Download</button>
-                </div>
-            </div>
-            <div class="book-card">
-                <div class="book-image">
-                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-                </div>
-                <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                    <button class="download-btn">Download</button>
-                </div>
-            </div>
-            <div class="book-card">
-                <div class="book-image">
-                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-                </div>
-                <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                    <button class="download-btn">Download</button>
-                </div>
-            </div>
-            <div class="book-card">
-                <div class="book-image">
-                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-                </div>
-                <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                    <button class="download-btn">Download</button>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -78,4 +35,5 @@
     });
   });
 </script>
+<script src="{% static 'js/tracking.js' %}"></script>
 {% endblock %}

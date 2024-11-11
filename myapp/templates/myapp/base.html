@@ -18,10 +18,10 @@
                 <span class="bar"></span>
             </div>
             <div class="logo">
-                <a href="#">eBookMania</a>
+                <a href="{% url 'home' %}">eBookMania</a>
             </div>
             <div class="search-box">
-                <form class="search-form" method="get">
+                <form class="search-form" method="get" action="{% url 'search' %}">
                     <input type="text" name="query" id="query" placeholder="Search books..." required>
                     <button type="submit" class="search-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -32,7 +32,7 @@
                 </form>
             </div>
             <ul class="nav-list">
-                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
                 <li><a href="#" class="nav-link">Store</a></li>
                 <li class="user-menu">
                     <span class="username">JohnDoe</span>

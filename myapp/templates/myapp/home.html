@@ -37,7 +37,7 @@
 				</div>
 				<div class="book-info">
 					<h3><a href="#">Lorem, ipsum dolor.</a></h3>
-					<button class="download-btn" onclick="directDownload('{{ ebook.book.url }}', '{{ ebook.title }}')" data-ebook-id="{{ ebook.id }}" data-ebook-file="{{ ebook.book.url }}">Download</button>
+					<button class="download-btn" onclick="directDownload('{{ ebook.book.url }}', '{{ ebook.title }}')" data-ebook-id="{{ ebook.id }}">Download</button>
 				</div>
 			</div>
 			{% endfor %}
@@ -48,30 +48,12 @@
 	<div class="container1">
 		<h2>Browse Genres</h2>
 		<div class="genre-grid">
+			{% for cat in category %}
 			<div class="genre-card">
-				<img src="https://cdn-media.pfcontent.net/media/huntspix/images/products/prints_square.jpg?mod=1489560711" alt="History">
-				<h3>History</h3>
+				<a href="#"><img src="https://cdn-media.pfcontent.net/media/huntspix/images/products/prints_square.jpg?mod=1489560711" alt="{{cat.name}}"></a>
+				<h3><a href="#">{{cat.name}}</a></h3>
 			</div>
-			<div class="genre-card">
-				<img src="https://cdn-media.pfcontent.net/media/huntspix/images/products/prints_square.jpg?mod=1489560711" alt="History">
-				<h3>History</h3>
-			</div>
-			<div class="genre-card">
-				<img src="https://cdn-media.pfcontent.net/media/huntspix/images/products/prints_square.jpg?mod=1489560711" alt="History">
-				<h3>History</h3>
-			</div>
-			<div class="genre-card">
-				<img src="https://cdn-media.pfcontent.net/media/huntspix/images/products/prints_square.jpg?mod=1489560711" alt="History">
-				<h3>History</h3>
-			</div>
-			<div class="genre-card">
-				<img src="https://cdn-media.pfcontent.net/media/huntspix/images/products/prints_square.jpg?mod=1489560711" alt="History">
-				<h3>History</h3>
-			</div>
-			<div class="genre-card">
-				<img src="https://cdn-media.pfcontent.net/media/huntspix/images/products/prints_square.jpg?mod=1489560711" alt="History">
-				<h3>History</h3>
-			</div>
+			{% endfor %}
 		</div>
 	</div>
 </section>
@@ -80,14 +62,14 @@
 		<h2>Educational Release</h2>
 		{% csrf_token %}
 		<div class="book-grid">
-			{% for p in ebook %}
+			{% for p in random %}
 			<div class="book-card">
 				<div class="book-image">
 					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
 				</div>
 				<div class="book-info">
 					<h3><a href="#">Lorem, ipsum dolor.</a></h3>
-					<button class="download-btn" onclick="directDownload('{{ p.book.url }}', '{{ p.title }}')" data-ebook-id="{{ p.id }}" data-ebook-file="{{ p.book.url }}">Download</button>
+					<button class="download-btn" onclick="directDownload('{{ p.book.url }}', '{{ p.title }}')" data-ebook-id="{{ p.id }}">Download</button>
 				</div>
 			</div>
 			{% endfor %}

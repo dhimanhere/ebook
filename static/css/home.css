@@ -13,6 +13,8 @@ img{
 }
 
 .genre-card {
+  width: 100%;
+  max-width: 200px;
   position: relative;
   border-radius: 8px;
   overflow: hidden;
@@ -36,6 +38,9 @@ img{
   margin: 0;
   text-align: center;
   font-size: 1.1rem;
+}
+.genre-card a{
+  text-decoration: none;
   color: var(--color-primary);
 }
 .ss2.donate{
