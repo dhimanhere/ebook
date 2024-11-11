@@ -157,8 +157,40 @@ def ebookFormView(request):
 	return render(request, 'myapp/ebook-form.html', {'form':form})
 
 def dashboard(request):
-	context = {
 
+	total_ebooks = EbookModel.objects.filter(uploader = request.user.uploader).order_by("-created_on")
+	ebk_paginator = Paginator(total_ebooks, 15)
+	page_number = request.GET.get("page")
+	ebook_list = ebk_paginator.get_page(page_number)
+
+	no_of_ebooks = len(total_ebooks)
+
+	total_downloads = DownloadCount.objects.filter(ebook__in= total_ebooks).order_by("count")
+	download_paginator = Paginator(total_downloads, 15)
+	page_number = request.GET.get("page")
+	download_list = download_paginator.get_page(page_number)
+
+	download_count = 0
+
+	for total in total_downloads:
+		download_count = download_count + total.count
+
+
+	total_views = PageViews.objects.filter(ebook__in = total_ebooks)
+
+	views_count = 0
+
+	for total in total_views:
+		views_count = views_count + total.count
+
+	context = {
+		'ebook_list': ebook_list,
+		'no_of_ebooks' : no_of_ebooks,
+
+		'download_list' : download_list,
+		'download_count' : download_count,
+
+		'total_views': total_views,
 	}
 	return render(request, 'myapp/dashboard.html', context)
 

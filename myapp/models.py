@@ -59,7 +59,7 @@ class DownloadCount(models.Model):
 class PageViews(models.Model):
 	ebook = models.ForeignKey(EbookModel, on_delete = models.CASCADE)
 	count = models.PositiveIntegerField(default = 0, null = True, blank=False)
-	creat = models.DateTimeField(auto_now_add = True)
+	created_on = models.DateTimeField(auto_now_add = True)
 
 	class Meta:
 		verbose_name_plural = 'Page Views'

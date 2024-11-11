@@ -19,7 +19,7 @@ urlpatterns = [
 	path("author-profile-form/", views.uploaderFormView, name = "uploader-form"),
 	path("upload/ebook/", views.ebookFormView, name= "ebook-form"),
 	path("dashboard/", views.dashboard, name = "dashboard"),
-	path("category/<slug:slug>", views.category, name = "category"),
-	path("detail/", views.detail, name = "detail"),
+	path("category/<slug:slug>/", views.category, name = "category"),
+	path("detail/<slug:slug>/", views.detail, name = "detail"),
     path('track-download/', views.track_download, name='track_download'),
 ]
