@@ -2,26 +2,70 @@
 {% load static %}
 {% block head %}
 <title>Profile</title>
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
 {% endblock %}
 {% block content %}
-<section class="prof-section">
-	<div class="p-container">
-		<div class="p-wrapper">
-			
-		</div>
+<div class="profile-container">
+	<div class="profile-header">
+		<h1>Profile</h1>
 	</div>
-	<div class="dash-container">
-		<div class="dash-wrapper">
-			
-		</div>
+	<div class="profile-grid">
+		<article class="profile-card">
+			<div class="card-content">
+				<label>Name</label>
+				<h3>Dhiman Chakma</h3>
+			</div>
+		</article>
+
+		<article class="profile-card">
+			<div class="card-content">
+				<label>Username</label>
+				<h3>username14</h3>
+			</div>
+		</article>
+
+		<article class="profile-card">
+			<div class="card-content">
+				<label>Display Name</label>
+				<h3>SomeStore</h3>
+			</div>
+			<a href="#" class="edit-link">Update</a>
+		</article>
+
+		<article class="profile-card">
+			<div class="card-content">
+				<label>Email</label>
+				<h3>admin@gamil.com</h3>
+			</div>
+		</article>
+
+		<article class="profile-card">
+			<div class="card-content">
+				<a href="#" class="change-password">Change Password</a>
+			</div>
+		</article>
+
+		<article class="profile-card">
+			<div class="card-content">
+				<label>Donate</label>
+				<h3>https://hanjaba.com/</h3>
+			</div>
+			<a href="#" class="edit-link">Update</a>
+		</article>
 	</div>
-	<div class="lu-container">
-		<div class="lu-wrapper">
-			
-		</div>
-	</div>
-</section>
+</div>
 {% endblock %}
 {% block js %}
-
+<script>
+	// Add hover effect to profile cards
+	document.querySelectorAll('.profile-card').forEach(card => {
+		card.addEventListener('mouseenter', () => {
+			card.style.transform = 'translateY(-3px)';
+		});
+		
+		card.addEventListener('mouseleave', () => {
+			card.style.transform = 'translateY(0)';
+		});
+	});
+</script>
 {% endblock %}

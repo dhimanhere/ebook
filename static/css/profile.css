@@ -1,0 +1,99 @@
+.profile-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.profile-header h1 {
+    font-family: var(--header-font);
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.profile-card {
+    background: var(--color-white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.profile-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.card-content label {
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-content h3 {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    font-weight: 500;
+    word-break: break-all;
+}
+
+.edit-link {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: var(--color-link);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.edit-link:hover {
+    color: var(--color-hover);
+}
+
+.change-password {
+    color: var(--color-link);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.change-password:hover {
+    color: var(--color-hover);
+}
+
+@media (max-width: 768px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-card {
+        padding: 1.25rem;
+    }
+    
+    .profile-header h1 {
+        font-size: 2rem;
+    }
+}
