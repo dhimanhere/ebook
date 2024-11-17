@@ -21,7 +21,7 @@ def home(request):
 	page_number = request.GET.get("page")
 	ebook = last_paginator.get_page(page_number)
 
-	random_title = EbookModel.objects.all().order_by("-created_on")
+	random_title = EbookModel.objects.all().order_by("?")
 	random_paginator = Paginator(random_title, 10)
 	page_number = request.GET.get("page")
 	random =  random_paginator.get_page(page_number)
@@ -37,13 +37,15 @@ def home(request):
 
 def filterbooks(request):
 	
-	filter_list = BookFilter(request.GET, queryset = EbookModel.objects.all())
-	filter_paginator = Paginator(filter_list, 15)
+	filter_form = BookFilter(request.GET, queryset = EbookModel.objects.all().order_by("-created_on"))
+	filter_qs = filter_form.queryset
+	filter_paginator = Paginator(filter_qs, 15)
 	page_number = request.GET.get("page")
-	f = filter_paginator.get_page(page_number)
+	filter_list = filter_paginator.get_page(page_number)
 
 	context = {
-		'filter':f,
+		'filter':filter_list,
+		'filter_form': filter_form,
 	}
 	return render(request, 'myapp/filter.html', context)
 

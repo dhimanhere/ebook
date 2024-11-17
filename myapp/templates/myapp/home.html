@@ -33,7 +33,7 @@
 			{% for ebook in ebook %}
 			<div class="book-card">
 				<div class="book-image">
-					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
+					<a href="#"><img src="{{ebook.thumbnail.url}}" alt="Book cover"></a>
 				</div>
 				<div class="book-info">
 					<h3><a href="#">Lorem, ipsum dolor.</a></h3>
@@ -59,16 +59,16 @@
 </section>
 <section class="educational ss2">
 	<div class="container1">
-		<h2>Educational Release</h2>
+		<h2>You might Like</h2>
 		{% csrf_token %}
 		<div class="book-grid">
 			{% for p in random %}
 			<div class="book-card">
 				<div class="book-image">
-					<img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
+					<a href="#"><img src="{{p.thumbnail.url}}" alt="Book cover"></a>
 				</div>
 				<div class="book-info">
-					<h3><a href="#">Lorem, ipsum dolor.</a></h3>
+					<h3><a href="#">{{p.title}}</a></h3>
 					<button class="download-btn" onclick="directDownload('{{ p.book.url }}', '{{ p.title }}')" data-ebook-id="{{ p.id }}">Download</button>
 				</div>
 			</div>

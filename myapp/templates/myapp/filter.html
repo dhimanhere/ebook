@@ -12,13 +12,13 @@
       <div class="form-wrapper">
         <form class="filter-form">
           <div class="input-wrapper">
-            {{filter.form.author}}
+            {{filter_form.form.author}}
           </div>
           <div class="input-wrapper">
-            {{filter.form.category}}
+            {{filter_form.form.category}}
           </div>
           <div class="input-wrapper">
-            {{filter.form.language}}
+            {{filter_form.form.language}}
           </div>
           <button type="submit">Filter</button>
         </form>
@@ -27,66 +27,26 @@
   </section>
 <section class="latest-releases ss2">
     <div class="container1">
-        <div class="book-grid">
-            <div class="book-card">
+        <div class="book-grid infinite-container">
+            {% for f in filter %}
+            <div class="book-card infinite-item">
                 <div class="book-image">
-                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
+                    <a href="#"><img src="{{f.thumbnail.url}}" alt="{{f.title}}"></a>
                 </div>
                 <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, quas!</a></h3>
-                    <button class="download-btn">Download</button>
+                    <h3><a href="#">{{f.title}}</a></h3>
+                    <button class="download-btn" onclick="directDownload('{{ f.book.url }}', '{{ f.title }}')" data-ebook-id="{{ f.id }}">Download</button>
                 </div>
             </div>
-            <div class="book-card">
-                <div class="book-image">
-                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-                </div>
-                <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                    <button class="download-btn">Download</button>
-                </div>
-            </div>
-            <div class="book-card">
-                <div class="book-image">
-                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-                </div>
-                <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                    <button class="download-btn">Download</button>
-                </div>
-            </div>
-            <div class="book-card">
-                <div class="book-image">
-                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-                </div>
-                <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                    <button class="download-btn">Download</button>
-                </div>
-            </div>
-            <div class="book-card">
-                <div class="book-image">
-                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-                </div>
-                <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                    <button class="download-btn">Download</button>
-                </div>
-            </div>
-            <div class="book-card">
-                <div class="book-image">
-                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
-                </div>
-                <div class="book-info">
-                    <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                    <button class="download-btn">Download</button>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
-    <div class="loader-wrapper">
-        <div class="loader"></div>
-    </div>
+     {% if filter.has_next %}
+        <a href="?page={{ filter.next_page_number }}" display = "none" class="infinite-more-link">next</a>
+        <div class="loader-wrapper">
+            <div class="loader"></div>
+        </div>
+    {% endif %}
 </section>
 {% endblock %}
 {% block js %}
@@ -105,5 +65,30 @@
         card.style.transform = 'translateY(0)';
     });
   });
+</script>
+<script src="{% static 'js/tracking.js' %}"></script>
+<script src="{% static 'waypoint/jquery.js' %}"></script>
+<script src="{% static 'waypoint/waypoint.js' %}"></script>
+<script src="{% static 'waypoint/infinite.js' %}"></script>
+<script src="{% static 'js/pagination.js' %}"></script>
+<script>
+    function directDownload(fileUrl, title) {
+    // Create a hidden anchor element
+        const link = document.createElement('a');
+        link.style.display = 'none';
+
+    // Set the download attributes
+        link.href = fileUrl;
+        link.download = title;  // This might not work if file is hosted on different domain
+    
+    // Append to body, click, and remove
+        document.body.appendChild(link);
+        link.click();
+    
+    // Cleanup
+        setTimeout(() => {
+            document.body.removeChild(link);
+        }, 100);
+}
 </script>
 {% endblock %}
