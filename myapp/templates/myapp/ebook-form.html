@@ -10,6 +10,13 @@
 	<div class="ebk-wrapper">
 		<h1>Showcase Your Creativity</h1>
 		<form method="post" class="ebk-form">
+			{% if messages %}
+			<ul class="form-errors">
+				{% for message in messages %}
+				<li>{{ message }}</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
 			<div class="ebk-input">
 				<label for="title">Name of the ebook</label>
 				{{form.title}}
@@ -47,9 +54,6 @@
 </div>
 {% endblock %}
 {% block js %}
-
-<script type="module">
-	document.querySelector('.ebk-form').insertAdjacentHTML('afterend', progressHTML);
-</script>
+<script src="{% static 'js/uploader.js' %}"></script>
 {% endblock %}
 

@@ -22,6 +22,6 @@ urlpatterns = [
 	path("category/<slug:slug>/", views.category, name = "category"),
 	path("detail/<slug:slug>/", views.detail, name = "detail"),
     path('track-download/', views.track_download, name='track_download'),
-    path('logout/', views.loginview, name = "logout"),
+    path('logout/', views.logoutview, name = "logout"),
     path('profile/', views.profileview, name = "profile"),
 ]

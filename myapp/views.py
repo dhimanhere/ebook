@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import UserForm
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login as logmf, logout
 from .forms import BookFilter, EbookModelForm, UploaderForm
 from .models import EbookModel, Uploader, PageViews, DownloadCount, Category
 from django.http import JsonResponse
@@ -103,7 +103,7 @@ def registerview(request):
 			password = request.POST['password2']
 			user = authenticate(request, username=username, password=password)
 			if user is not None:
-				login(request, user)
+				logmf(request, user)
 				return redirect("/")
 		else:
 			messages.error(request, "Something went wrong!")
@@ -115,22 +115,24 @@ def registerview(request):
 	return render(request, 'myapp/register.html', context)
 
 def loginview(request):
-	if request.method == "POST":
-		username = request.POST['username']
-		password = request.POST['password']
-		user = authenticate(request, username=username, password=password)
-		if user is not None:
-			login(request, user)
-			next_url = request.POST.get("next", "")
-			if next_url:
-				return redirect(next_url)
-			else:
-				return redirect("/")
-		else:
-			messages.error(request, "Something went wrong")
+	if request.user.is_authenticated:
+		return redirect("/")
 	else:
-		messages.warning(request, "This is our fault")
-	return render(request, 'myapp/login.html')
+		if request.method == 'POST':
+			username = request.POST.get('username', '')
+			password = request.POST.get('password', '')
+			user = authenticate(request, username=username, password=password)
+			if user is not None:
+				logmf(request, user)
+				return redirect("dashboard")
+			elif user is None:
+				messages.warning(request, "User doesn't exist")
+				return render(request, 'myapp/login.html')
+			else:
+				messages.warning(request,"Email or Password is incorrect")
+				return render(request, 'myapp/login.html')
+		else:
+			return render(request, 'myapp/login.html')
 
 @login_required(login_url="/login/")
 def uploaderFormView(request):
@@ -150,7 +152,7 @@ def uploaderFormView(request):
 from .decorators import require_uploader
 
 @login_required(login_url="/login/")
-@require_uploader
+@require_uploader()
 def ebookFormView(request):
 	if request.method == "POST":
 		form = EbookModelForm(request.POST, request.FILES)
@@ -166,6 +168,7 @@ def ebookFormView(request):
 	return render(request, 'myapp/ebook-form.html', {'form':form})
 
 @login_required(login_url="/login/")
+@require_uploader()
 def dashboard(request):
 
 	total_ebooks = EbookModel.objects.filter(uploader = request.user.uploader).order_by("-created_on")
@@ -200,7 +203,7 @@ def dashboard(request):
 		'download_list' : download_list,
 		'download_count' : download_count,
 
-		'total_views': total_views,
+		'views_count': views_count,
 	}
 	return render(request, 'myapp/dashboard.html', context)
 
@@ -227,8 +230,16 @@ def track_download(request):
 
 def logoutview(request):
 	logout(request)
+	return redirect("/")
 
 @login_required(login_url="/login/")
-@require_uploader
+@require_uploader()
 def profileview(request):
-	return render(request, 'myapp/profile.html')
+	try:
+		uploader = Uploader.objects.get(user = request.user)
+		context = {
+			'uploader':uploader,
+		}
+	except Uploader.DoesNotExist:
+		return redirect("uploader-form")
+	return render(request, 'myapp/profile.html', context)

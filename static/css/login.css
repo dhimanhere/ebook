@@ -41,3 +41,10 @@
 .register-link a:hover {
     color: var(--color-hover);
 }
+.form-errors {
+  background: #ffebee;
+  color: #c62828;
+  padding: 15px 30px;
+  border-radius: 8px;
+  margin: 0 0 20px 0;
+}

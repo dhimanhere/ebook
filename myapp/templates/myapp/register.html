@@ -40,31 +40,5 @@
 			</form>
 		</div>
 	</section>
-	<script>
-		const passWord1 = document.querySelector("#id_password1");
-		const passWord2 = document.querySelector("#id_password2");
-		passWord1.placeholder = "Password";
-		passWord2.placeholder = "Confirm Password";
-		document.getElementById('registerForm').addEventListener('submit', function(e) {
-			e.preventDefault();
-
-			const password = document.getElementById('password').value;
-			const confirmPassword = document.getElementById('confirmPassword').value;
-
-			if (password !== confirmPassword) {
-				alert('Passwords do not match!');
-				return;
-			}
-
-    // Here you would typically send the form data to your server
-			console.log('Form submitted:', {
-				firstName: document.getElementById('firstName').value,
-				lastName: document.getElementById('lastName').value,
-				username: document.getElementById('username').value,
-				email: document.getElementById('email').value,
-				password: password
-			});
-		});
-	</script>
 </body>
 </html>

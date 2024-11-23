@@ -11,15 +11,15 @@
 			<div class="metric-grid">
 				<div class="metric-card">
 					<h3>Page Views</h3>
-					<div class="metric-value">100,123</div>
+					<div class="metric-value">{{views_count}}</div>
 				</div>
 				<div class="metric-card">
 					<h3>Total Downloads</h3>
-					<div class="metric-value">5000</div>
+					<div class="metric-value">{{download_count}}</div>
 				</div>
 				<div class="metric-card">
 					<h3>Total eBooks</h3>
-					<div class="metric-value">20</div>
+					<div class="metric-value">{{no_of_ebooks}}</div>
 				</div>
 			</div>
 		</div>
@@ -29,23 +29,27 @@
 				<div class="metric-card top-ebooks">
 					<h3>Top Performing eBooks</h3>
 					<div class="top-ebooks-list">
+						{% for d in download_list %}
 						<div class="top-ebook-item">
 							<div class="top-ebook-info">
-								<span class="top-ebook-title">Lorem ipsum dolor sit amet.</span>
+								<span class="top-ebook-title">{{d.ebook.title}}</span>
 								<div class="top-ebook-stats">
-									<span class="downloads">267 downloads</span>
+									<span class="downloads"><strong>Downloads : </strong>{{d.count}}</span>
 								</div>
 							</div>
 						</div>
+						{% endfor %}
 					</div>
 				</div>
 				<div class="metric-card uploads">
 					<h3>Latest Uploads</h3>
 					<div class="uploads-list">
+						{% for e in ebook_list %}
 						<div class="upload-item">
-							<span class="upload-title">Lorem ipsum dolor sit, amet.</span>
-							<span class="upload-date">25-10-2024</span>
+							<span class="upload-title">{{e.title}}</span>
+							<span class="upload-date">{{e.created_on}}</span>
 						</div>
+						{% endfor %}
 					</div>
 				</div>
 			</div>

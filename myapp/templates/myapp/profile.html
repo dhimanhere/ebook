@@ -13,21 +13,21 @@
 		<article class="profile-card">
 			<div class="card-content">
 				<label>Name</label>
-				<h3>Dhiman Chakma</h3>
+				<h3>{{request.user.first_name}} {{request.user.last_name}}</h3>
 			</div>
 		</article>
 
 		<article class="profile-card">
 			<div class="card-content">
 				<label>Username</label>
-				<h3>username14</h3>
+				<h3>{{request.user.username}}</h3>
 			</div>
 		</article>
 
 		<article class="profile-card">
 			<div class="card-content">
 				<label>Display Name</label>
-				<h3>SomeStore</h3>
+				<h3>{{uploader.name}}</h3>
 			</div>
 			<a href="#" class="edit-link">Update</a>
 		</article>
@@ -35,7 +35,7 @@
 		<article class="profile-card">
 			<div class="card-content">
 				<label>Email</label>
-				<h3>admin@gamil.com</h3>
+				<h3>{{request.user.email}}</h3>
 			</div>
 		</article>
 
@@ -48,7 +48,11 @@
 		<article class="profile-card">
 			<div class="card-content">
 				<label>Donate</label>
-				<h3>https://hanjaba.com/</h3>
+				{% if uploader.url %}
+				<h3>{{uploader.url}}</h3>
+				{% else %}
+				<h3>No Donation Link Found</h3>
+				{% endif %}
 			</div>
 			<a href="#" class="edit-link">Update</a>
 		</article>
