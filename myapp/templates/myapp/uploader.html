@@ -1,0 +1,39 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block head %}
+<title>Category</title>
+<link rel="stylesheet" href="{% static 'css/book.css' %}">
+{% endblock %}
+{% block content %}
+<section class="latest-releases ss2">
+    <div class="container1">
+        <h2>{{uploader.name}}</h2>
+        <div class="book-grid">
+            {% for cat in ebook %}
+            <div class="book-card">
+                <div class="book-image">
+                    <img src="https://i.pinimg.com/564x/f7/c8/12/f7c812c9b0296cd9f119e33a06d9a256.jpg" alt="Book cover">
+                </div>
+                <div class="book-info">
+                    <h3><a href="#">{{cat.tittle}}</a></h3>
+                    <button class="download-btn" onclick="directDownload('{{ cat.book.url }}', '{{ cat.title }}')" data-ebook-id="{{ cat.id }}">Download</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block js %}
+<script>
+    document.querySelectorAll('.book-card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-5px)';
+    });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+    });
+  });
+</script>
+<script src="{% static 'js/tracking.js' %}"></script>
+{% endblock %}

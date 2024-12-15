@@ -243,3 +243,12 @@ def profileview(request):
 	except Uploader.DoesNotExist:
 		return redirect("uploader-form")
 	return render(request, 'myapp/profile.html', context)
+
+def uploader_store(request, slug):
+	uploader = get_object_or_404(Uploader, slug)
+	ebook_list = EbookModel.objects.filter(uploader = uploader).order_by("-created_on")
+	context = {
+		'uploader' : uploader,
+		'ebook': Paginator(ebook_list, 10).get_page(request.GET.get("page")),
+	}
+	return render(request, 'myapp/uploader.html', context)

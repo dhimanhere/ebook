@@ -30,14 +30,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
-// Search form submission
-const searchForm = document.querySelector('.search-form');
-searchForm?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const query = document.querySelector('#query')?.value.trim();
-    if (query) {
-        // Handle search - you can implement your search logic here
-        console.log('Searching for:', query);
-    }
-});

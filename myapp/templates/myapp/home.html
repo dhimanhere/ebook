@@ -33,7 +33,7 @@
 			{% for ebook in ebook %}
 			<div class="book-card">
 				<div class="book-image">
-					<a href="#"><img src="{{ebook.thumbnail.url}}" alt="Book cover"></a>
+					<a href="{% url 'detail' detail.slug %}"><img src="{{ebook.thumbnail.url}}" alt="Book cover"></a>
 				</div>
 				<div class="book-info">
 					<h3><a href="#">Lorem, ipsum dolor.</a></h3>
@@ -65,7 +65,7 @@
 			{% for p in random %}
 			<div class="book-card">
 				<div class="book-image">
-					<a href="#"><img src="{{p.thumbnail.url}}" alt="Book cover"></a>
+					<a href="{% url 'detail' detail.slug %}"><img src="{{p.thumbnail.url}}" alt="Book cover"></a>
 				</div>
 				<div class="book-info">
 					<h3><a href="#">{{p.title}}</a></h3>
